@@ -31,7 +31,7 @@ file(GLOB C_SOURCES
 
 # C++ test source files
 # test로 사용할 파일들을 여기에 배치
-# network를 사용한다면 tests/network/*.cpp 형태로 작성
+# network 폴더를 사용한다면 tests/network/*.cpp 형태로 작성
 file(GLOB CPP_TEST_SOURCES
     "tests/*.cpp"
 )

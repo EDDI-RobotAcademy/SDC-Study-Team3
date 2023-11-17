@@ -2,6 +2,6 @@
 
 TEST(testClass, testScript)
 {
-    //EXPECT_EQ(5, add(3,2));
+    //EXPECT_EQ(5, 3+2);
 }
 
