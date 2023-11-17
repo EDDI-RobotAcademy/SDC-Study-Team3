@@ -27,6 +27,7 @@ enable_testing()
 # 기존의 main.c에 병합될 소스코드(원래 하던대로 넣으면 됨)
 file(GLOB C_SOURCES
     "*.c"
+    "board/domain/model/*.c"
 )
 
 # C++ test source files
@@ -34,6 +35,7 @@ file(GLOB C_SOURCES
 # network 폴더를 사용한다면 tests/network/*.cpp 형태로 작성
 file(GLOB CPP_TEST_SOURCES
     "tests/*.cpp"
+
 )
 
 # Create a library from the shared C source files
@@ -67,6 +69,7 @@ add_custom_command(
 # Main application (C)
 file(GLOB MAIN_SOURCES
     "*.c"
+    
 )
 
 # Only build c_app if every_unit_test is successful
