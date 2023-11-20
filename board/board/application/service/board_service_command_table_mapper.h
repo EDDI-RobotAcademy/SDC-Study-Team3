@@ -8,18 +8,16 @@
 #include "edit/edit_service_command_handler.h"
 #include "delete/delete_service_command_handler.h"
 
-void dumm();
-
 
 
 #define __BOARD_SERVICE_COMMAND_TABLE(number, function_prototype) \
         [number] = function_prototype,
 
-// __BOARD_SERVICE_COMMAND_TABLE(BOARD_SERVICE_LIST, post_list)
+__BOARD_SERVICE_COMMAND_TABLE(BOARD_SERVICE_LIST, post_list_test_test)
 // __BOARD_SERVICE_COMMAND_TABLE(BOARD_SERVICE_READ, post_read)
 // __BOARD_SERVICE_COMMAND_TABLE(BOARD_SERVICE_WRITE, post_add)
 // __BOARD_SERVICE_COMMAND_TABLE(BOARD_SERVICE_EDIT, post_edit)
-__BOARD_SERVICE_COMMAND_TABLE(BOARD_SERVICE_DELETE, post_delete)
+// __BOARD_SERVICE_COMMAND_TABLE(BOARD_SERVICE_DELETE, post_delete)
 
 
 

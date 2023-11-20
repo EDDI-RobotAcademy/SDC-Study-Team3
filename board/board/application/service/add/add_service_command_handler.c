@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-void post_add()
+void post_add(board_operation_request *request)
 {
     printf("ddd");
 }
