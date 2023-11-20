@@ -1,2 +1,0 @@
-
-void post_list();

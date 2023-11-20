@@ -1,4 +1,7 @@
 
 #include "read_service_command_handler.h"
-
-void post_read();
+#include <stdio.h>
+void post_read()
+{
+    printf("ddd");
+}

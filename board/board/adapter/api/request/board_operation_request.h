@@ -8,10 +8,10 @@ typedef struct _board_operation_request board_operation_request;
 struct _board_operation_request
 {
     post_model *first_board;
-    post_model *second_board;
+    
 };
 
-board_operation_request *init_board_operation_request(post_model *, post_model *);
+board_operation_request *init_board_operation_request(post_model *);
 void print_board_operation_request(board_operation_request *);
 
 #endif

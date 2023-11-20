@@ -2,12 +2,11 @@
 
 #include <stdlib.h>
 
-board_operation_request *init_board_operation_request(post_model *first_board, post_model *second_board)
+board_operation_request *init_board_operation_request(post_model *first_board)
 {
     board_operation_request *board_request = (board_operation_request *)malloc(sizeof(board_operation_request));
 
     board_request->first_board = first_board;
-    board_request->second_board = second_board;
 
     return board_request;
 }

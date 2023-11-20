@@ -15,6 +15,6 @@ typedef void (* board_service_call_ptr_t) (board_operation_request *);
 
 // 결국 아래는 함수 포인터 배열을 의미함
 extern const board_service_call_ptr_t 
-    vector_service_command_table[BOARD_SERVICE_EXECUTE_BUFFER_COUNT];
+    board_service_command_table[BOARD_SERVICE_EXECUTE_BUFFER_COUNT];
 
 #endif
