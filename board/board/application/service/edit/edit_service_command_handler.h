@@ -9,6 +9,8 @@ extern "C" {
 
 void post_edit(board_operation_request *request);
 
+void edit(unsigned int uid);
+
 #ifdef __cplusplus
 }
 #endif

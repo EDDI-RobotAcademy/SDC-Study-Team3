@@ -20,7 +20,8 @@ struct _board_operation_request
 };
 
 board_operation_request *init_board_operation_request(post_model *);
-void print_board_operation_request(board_operation_request *);
+void request_board_operation();
+
 
 #ifdef __cplusplus
 }

@@ -4,5 +4,5 @@
 
 void post_add(board_operation_request *request)
 {
-    printf("ddd");
+    
 }

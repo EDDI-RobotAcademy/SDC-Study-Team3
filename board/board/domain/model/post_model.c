@@ -19,7 +19,7 @@ int increment_post_model_unique_id()
 }
 
 /// @brief post_model을 생성하는 함수
-/// @param uid : unique_id, 고유값. 신규 생성때에는 "NEW_POST"(0)를 넣으면 된다. 수정때 필요할수도 있어서 쓰긴했는데 삭제해도될듯
+/// @param uid : unique_id, 고유값. 신규 생성때에는 "NEW_POST"(0)를 넣으면 된다. 삭제해도 될지도?
 /// @param title : 제목
 /// @param writer : 작성자 
 /// @param password : 비밀번호 
@@ -115,10 +115,7 @@ post_model *find_post_model_from_array_with_uid(unsigned int uid)
     return NULL;
 }
 
-post_model** get_post_model_array()
-{
-    return post_model_array;
-}
+
 
 unsigned int get_post_count()
 {
