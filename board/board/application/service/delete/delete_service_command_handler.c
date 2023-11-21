@@ -26,8 +26,8 @@ void delete_post_model_from_post_array(unsigned int uid)
       if( get_post_model_array()[loop]->unique_id == uid)
       {
          
-         //free(get_post_model_array()[loop]);
-         //get_post_model_array()[loop] = NULL;
+         free(get_post_model_array()[loop]);
+         get_post_model_array()[loop] = NULL;
          continue;
       }
       
@@ -52,10 +52,19 @@ void delete_test()
     init_post_model_object(NEW_POST,"iop","uio","hjk","yuirtyurh");
     init_post_model_object(NEW_POST,"ddfgj","tryet","cvbm","gqwertxdgfhj");
 
+    printf("삭제 전\n\n");
+    for(unsigned int i =0; i<4; i++)
+    {
+        printf("%d\n",i);
+        printf("uid: %d\ntitle: %s\nwriter: %s\ncontents: %s\n", 
+            get_post_model_array()[i]->unique_id,get_post_model_array()[i]->title, 
+            get_post_model_array()[i]->writer, get_post_model_array()[i]->content);
+        printf("\n");
+    }
     delete_post_model_from_post_array(2);
 
 
-    
+    printf("삭제 후\n\n");
     for(unsigned int i =0; i<3; i++)
     {
         printf("%d\n",i);

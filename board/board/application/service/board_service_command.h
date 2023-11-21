@@ -1,6 +1,10 @@
 #ifndef __BOARD_SERVICE_COMMAND_H__
 #define __BOARD_SERVICE_COMMAND_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 enum board_service_command
 {
     BOARD_SERVICE_LIST,
@@ -13,5 +17,9 @@ enum board_service_command
 
 #define BOARD_SERVICE_EXECUTE_BUFFER_COUNT       (BOARD_SERVICE_END)
 #define BOARD_SERVICE_EXECUTE_BUFFER             ((BOARD_SERVICE_END) - 1)
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

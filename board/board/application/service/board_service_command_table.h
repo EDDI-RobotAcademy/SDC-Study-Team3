@@ -1,6 +1,10 @@
 #ifndef __BOARD_SERVICE_COMMAND_TABLE_H__
 #define __BOARD_SERVICE_COMMAND_TABLE_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include "board_service_command.h"
 #include "../../adapter/api/request/board_operation_request.h"
 
@@ -16,5 +20,9 @@ typedef void (* board_service_call_ptr_t) (board_operation_request *);
 // 결국 아래는 함수 포인터 배열을 의미함
 extern const board_service_call_ptr_t 
     board_service_command_table[BOARD_SERVICE_EXECUTE_BUFFER_COUNT];
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
