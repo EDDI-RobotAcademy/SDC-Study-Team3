@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdbool.h>
 
 #include "board/application/service/delete/delete_service_command_handler.h"
 #include "board/domain/model/post_model.h"
@@ -10,13 +11,16 @@
 
 #include "utility/keyboard_input/keyboard_input.h"
 
+#include "utility/file/make_file/make_file.h"
+#include "utility/file/make_file_from_format/make_file_from_format.h"
+
 
 
 
 int main (void)
 {
     #pragma region DELETE_TEST
-    // init_post_model_object(NEW_POST,"asd","qwe","zxc","qweasdzxc");
+    //init_post_model_object(NEW_POST,"asd","qwe","zxc","qweasdzxc");
     // init_post_model_object(NEW_POST,"123","456","789","987654321");
     // init_post_model_object(NEW_POST,"iop","uio","hjk","yuirtyurh");
     // init_post_model_object(NEW_POST,"ddfgj","tryet","cvbm","gqwertxdgfhj");
@@ -51,6 +55,9 @@ int main (void)
     // }
     #pragma endregion
     
+    post_model* p = init_post_model_object(NEW_POST,"asd","qwe","zxc","qweasdzxc");
+
+    write_format_to_file(p);
 
     
     return 0;

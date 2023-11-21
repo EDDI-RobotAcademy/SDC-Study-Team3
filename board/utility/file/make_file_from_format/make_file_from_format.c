@@ -18,7 +18,7 @@ void adjust_write_contents_from_format(char *contents, post_model *format)
     int major_length, self_introduction_length;
 
     // contents에 "id:%d,major:%s,age:%d,introduction:%s,\n" 의 형식으로 문자열을 생성함
-    sprintf(contents, "id:%d,title:%s,writer:%d,password:%s,content:%s,\n", 
+    sprintf(contents, "id:%d,title:%s,writer:%s,password:%s,content:%s,\n", 
         format->unique_id, format->title, format->writer, format->password, format->content);
     printf("contents: %s\n", contents);
 }
@@ -43,12 +43,14 @@ bool write_format_to_file(post_model *format)
     -rw-r--r-- 1 eddi eddi     0 11월 16 09:24 이거만들래.txt
     */
     int created_file_descriptor = file_open(
-        "/home/eddi/teamProj/SDC-Study-Team3/created_file/format_test.txt", 
+        "/home/eddi/teamProj/SDC-Study-Team3/board/created_file/format_test.txt", 
             O_CREAT | O_RDWR | O_APPEND, 0644);
-
+printf("끝");
     adjust_write_contents_from_format(write_contents, format);
-
+printf("끝");
     write_content_in_file(created_file_descriptor, write_contents);
-
+printf("끝");
     file_close(created_file_descriptor);
+
+    printf("끝");
 }
