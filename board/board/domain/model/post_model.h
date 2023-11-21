@@ -34,6 +34,8 @@ void set_post_model_object_with_data( post_model *post_model_to_set,
 
 void add_post_model_to_post_array(post_model *post_model_to_add);
 
+post_model *find_post_model_from_array_with_uid(unsigned int uid);
+
 post_model** get_post_model_array();
 
 unsigned int get_post_count();

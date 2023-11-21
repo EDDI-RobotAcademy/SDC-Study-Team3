@@ -103,6 +103,18 @@ void add_post_model_to_post_array(post_model *post_model_to_add)
     
 }
 
+post_model *find_post_model_from_array_with_uid(unsigned int uid)
+{
+    for(int i = 0; i < post_count; i++)
+    {
+        if(post_model_array[i]->unique_id == uid)
+        {
+            return post_model_array[i];
+        }
+    }
+    return NULL;
+}
+
 post_model** get_post_model_array()
 {
     return post_model_array;
