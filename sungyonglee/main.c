@@ -1,25 +1,25 @@
 #include <stdio.h>
 #include <fcntl.h>
 
+#include "board/adapter/api/request/board_operation_request.h"
 #include "board/adapter/api/list_handler/list_read_data/list_read_data_handler.h"
 #include "board/adapter/api/list_handler/make_file/make_file.h"
+#include "board/adapter/api/list_handler/make_format_from_file/make_format_from_file.h"
 
-#include "board/adapter/api/list_handler/list_read_data/list_read_data_handler.h"
 #include "board/adapter/api/board_api_command_table.h"
-#include "board/adapter/api/board_api_command.h" 
+#include "board/adapter/api/board_api_command.h"
+
+#include "board/application/post/add/add_service_command_handler.h"
+#include "board/application/post/delete/delete_service_command_handler.h"
+#include "board/application/post/edit/edit_service_command_handler.h"
+#include "board/application/post/list/list_service_command_handler.h"
+#include "board/application/post/read/read_service_command_handler.h"
+
+#include "board/application/post/board_service_command_table.h"
+#include "board/application/post/board_service_command.h"
 
 
 #include "board/domain/model/post_model.h"
-
-/*
-#include "file_io/how_to_make_file.h"
-#include "file_io/how_to_write_content.h"
-#include "file_io/how_to_read_content.h"
-
-#include "format_test/form_test.h"
-#include "format_test/make_file_from_format.h"
-#include "format_test/make_format_from_file.h"
-*/
 
 // Linux OS가 메모리를 관리 할 때 Slab 단위 및 Buddy 단위로 관리함
 // Slab은 32 * 2^n 형태로 구성됨
@@ -78,11 +78,14 @@ int main (void)
     // write_format_to_file(format2);
 
     // board_api_command_table 을 강제 구동하기 위하여 호출함 (sungyonglee 231121 10:25)
+    
     board_api_command_table[0]();
+    board_service_command_table[0]();
 
 
+    read_file_to_format();
 
-   // read_file_to_format();
+
 
 
     return 0;

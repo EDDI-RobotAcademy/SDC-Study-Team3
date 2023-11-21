@@ -28,11 +28,20 @@ enable_testing()
 file(GLOB C_SOURCES
     "board/domain/model/*.c"
 
+    "board/adapter/api/request/board_operation_request.c"
+
     "board/adapter/api/list_handler/list_read_data/*.c"
     "board/adapter/api/list_handler/make_format_from_file/*.c"
     "board/adapter/api/list_handler/make_file/*.c"
+
+    "board/applicaton/post/add/*.c"
+    "board/applicaton/post/delete/*.c"
+    "board/applicaton/post/edit/*.c"
+    "board/applicaton/post/list/*.c"
+    "board/applicaton/post/read/*.c"
     
     "board/adapter/api/*.c"
+    "board/application/post/*.c"
 )
 
 # C++ test source files
