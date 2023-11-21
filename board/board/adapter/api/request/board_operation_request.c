@@ -1,6 +1,6 @@
 #include "board_operation_request.h"
 
-#include "../../../../utility/keyboard_input.h"
+#include "../../../../utility/keyboard_input/keyboard_input.h"
 #include "../board_api_command.h"
 #include "../board_api_command_table.h"
 #include "../board_api_command_table_mapper.h"
