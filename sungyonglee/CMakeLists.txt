@@ -26,11 +26,13 @@ enable_testing()
 # C source files
 # 기존의 main.c에 병합될 소스코드(원래 하던대로 넣으면 됨)
 file(GLOB C_SOURCES
-    "*.c"
     "board/domain/model/*.c"
+
     "board/adapter/api/list_handler/list_read_data/*.c"
     "board/adapter/api/list_handler/make_format_from_file/*.c"
     "board/adapter/api/list_handler/make_file/*.c"
+    
+    "board/adapter/api/*.c"
 )
 
 # C++ test source files

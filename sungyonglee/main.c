@@ -2,7 +2,13 @@
 #include <fcntl.h>
 
 #include "board/adapter/api/list_handler/list_read_data/list_read_data_handler.h"
-#include "board/adapter/api/list_handler/make_file/make_file.h" 
+#include "board/adapter/api/list_handler/make_file/make_file.h"
+
+#include "board/adapter/api/list_handler/list_read_data/list_read_data_handler.h"
+#include "board/adapter/api/board_api_command_table.h"
+#include "board/adapter/api/board_api_command.h" 
+
+
 #include "board/domain/model/post_model.h"
 
 /*
@@ -71,7 +77,12 @@ int main (void)
     // format2 = init_post_model_object(1, major2, 20, 0001, self_introduction2);
     // write_format_to_file(format2);
 
-    read_file_to_format();
+    // board_api_command_table 을 강제 구동하기 위하여 호출함 (sungyonglee 231121 10:25)
+    board_api_command_table[0]();
+
+
+
+   // read_file_to_format();
 
 
     return 0;
