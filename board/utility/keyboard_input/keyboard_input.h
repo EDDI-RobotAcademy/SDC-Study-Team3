@@ -1,5 +1,5 @@
-#ifndef __USER_KEYBOARD_INPUT_H__
-#define __USER_KEYBOARD_INPUT_H__
+#ifndef __KEYBOARD_INPUT_H__
+#define __KEYBOARD_INPUT_H__
 
 #ifdef __cplusplus
 extern "C"{
