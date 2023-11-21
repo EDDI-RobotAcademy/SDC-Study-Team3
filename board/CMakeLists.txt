@@ -17,7 +17,7 @@ file(GLOB SOURCE_FILES
     "board/application/service/add/*.c"
     "board/application/service/delete/*.c"
     "board/application/service/edit/*.c"
-    "board/application/service/lista/*.c"
+    "board/application/service/list/*.c"
     "board/application/service/read/*.c"
     
 )
