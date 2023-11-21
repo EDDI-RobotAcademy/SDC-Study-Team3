@@ -44,7 +44,7 @@ int main (void)
 
     // 0644는 8진수임
     int created_file_descriptor = file_open(
-        "/home/eddi/proj/SDC-Study-Team3/sungyonglee/created_file/format_post.txt", O_CREAT | O_RDWR | O_TRUNC, 0644);
+        "/home/eddi/proj/SDC-Study-Team3/sungyonglee/created_file/format_post.txt", O_CREAT | O_RDWR | O_APPEND, 0644);
 
     printf("생성된 파일 디스크립터: %d\n", created_file_descriptor);
     // printf("short test = %d\n", test_number);   // 
@@ -59,17 +59,17 @@ int main (void)
     file_close(created_file_descriptor);
 
     created_file_descriptor = file_open(
-        "/home/eddi/proj/SDC-Study-Team3/sungyonglee/created_file/format_post.txt", O_CREAT | O_RDWR | O_TRUNC, 0644);
+        "/home/eddi/proj/SDC-Study-Team3/sungyonglee/created_file/format_post.txt", O_CREAT | O_RDWR | O_APPEND, 0644);
 
     file_close(created_file_descriptor);
 
 
     // 파일 내용에 쓰여지는 것에만 관여
-    format = init_post_model_object(0, major, age, 0000, self_introduction);
-    write_format_to_file(format);
+    // format = init_post_model_object(0, major, age, 0000, self_introduction);
+    // write_format_to_file(format);
 
-    format2 = init_post_model_object(1, major2, 20, 0001, self_introduction2);
-    write_format_to_file(format2);
+    // format2 = init_post_model_object(1, major2, 20, 0001, self_introduction2);
+    // write_format_to_file(format2);
 
     read_file_to_format();
 

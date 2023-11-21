@@ -36,7 +36,7 @@ int find_enter_line_for_format_count(char *buffer, int total_length)
 }
 
 post_model **set_test_form_with_read_contents(
-    post_model **test_format_array, int object_count, char *read_contents)
+    post_model **post_model_array, int object_count, char *read_contents)
 {
     int i;
     int field_count = 0;
@@ -113,7 +113,7 @@ post_model **set_test_form_with_read_contents(
                 strncpy(password, &read_contents[start + 1], finish - start - 1);
                 printf("password: %s\n", password);
 
-                test_format_array[field_count / 5] = 
+                post_model_array[field_count / 5] = 
                 init_test_form_with_id(unique_id, title, writer, content, password);
             }
 
@@ -125,7 +125,7 @@ post_model **set_test_form_with_read_contents(
         }
     }
 
-    return test_format_array;
+    return post_model_array;
 }
 
 post_model **read_file_to_format(void)
@@ -134,7 +134,7 @@ post_model **read_file_to_format(void)
     int object_count;
     int total_length;
 
-    post_model **test_format_array;
+    post_model **post_model_array;
 
     // O_RDONLY: 읽기 전용
     int created_file_descriptor = file_open(
@@ -150,9 +150,9 @@ post_model **read_file_to_format(void)
     file_close(created_file_descriptor);
 
     object_count = find_enter_line_for_format_count(read_contents, total_length);
-    test_format_array = init_test_form_array(object_count);
+    post_model_array = init_test_form_array(object_count);
     printf("object_count: %d\n", object_count);
 
-    test_format_array = set_test_form_with_read_contents(test_format_array, object_count, read_contents);
-    printf("test_format_array: 0x%x\n", test_format_array);
+    post_model_array = set_test_form_with_read_contents(post_model_array, object_count, read_contents);
+    printf("test_format_array: 0x%x\n", post_model_array);
 }
