@@ -45,12 +45,12 @@ bool write_format_to_file(post_model *format)
     int created_file_descriptor = file_open(
         "/home/eddi/teamProj/SDC-Study-Team3/board/created_file/format_test.txt", 
             O_CREAT | O_RDWR | O_APPEND, 0644);
-printf("끝");
+
     adjust_write_contents_from_format(write_contents, format);
-printf("끝");
+
     write_content_in_file(created_file_descriptor, write_contents);
-printf("끝");
+
     file_close(created_file_descriptor);
 
-    printf("끝");
+
 }

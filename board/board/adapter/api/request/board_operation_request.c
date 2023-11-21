@@ -9,6 +9,10 @@
 #include "../board_api_command_table.h"
 #include "../board_api_command_table_mapper.h"
 
+// #include "../../../application/service/board_service_command.h"
+// #include "../../../application/service/board_service_command_table.h"
+//#include "../../../application/service/board_service_command_table_mapper.h"
+
 #include "../../../application/service/board_service_command.h"
 #include "../../../application/service/board_service_command_table.h"
 #include "../../../application/service/board_service_command_table_mapper.h"
@@ -66,6 +70,6 @@ void request_board_operation()
 
     board_operation_request *r = init_board_operation_request(tmp_post_model);
 
-    //board_service_command_table[BOARD_SERVICE_WRITE];
+    
 }
 

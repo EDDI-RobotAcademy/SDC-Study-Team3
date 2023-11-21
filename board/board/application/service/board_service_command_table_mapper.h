@@ -8,6 +8,9 @@ extern "C" {
 
 
 #include "board_service_command.h"
+
+#include "../../adapter/api/request/board_operation_request.h"
+
 #include "list/list_service_command_handler.h"
 #include "read/read_service_command_handler.h"
 #include "add/add_service_command_handler.h"
