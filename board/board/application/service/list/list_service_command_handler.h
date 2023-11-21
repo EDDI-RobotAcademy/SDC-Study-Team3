@@ -8,7 +8,7 @@ extern "C" {
 
 #include "../../../adapter/api/request/board_operation_request.h"
 
-void post_list(board_operation_request *request);
+void post_list(board_operation_request *);
 
 
 #ifdef __cplusplus

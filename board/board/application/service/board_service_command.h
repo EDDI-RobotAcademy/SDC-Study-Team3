@@ -5,6 +5,8 @@
 extern "C" {
 #endif
 
+
+/// @brief 0: 목록, 1: 읽기, 2: 쓰기, 3: 수정, 4: 삭제
 enum board_service_command
 {
     BOARD_SERVICE_LIST,

@@ -9,6 +9,8 @@ extern "C" {
 
 void post_add(board_operation_request *request);
 
+void wirte_post(post_model *model_to_write, char keyboard_input[]);
+
 #ifdef __cplusplus
 }
 #endif

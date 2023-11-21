@@ -24,7 +24,7 @@ int increment_post_model_unique_id()
 /// @param writer : 작성자 
 /// @param password : 비밀번호 
 /// @param content : 내용
-/// @return 
+/// @return 선언을 함과 동시에 쓸 수 있도록 post_model을 리턴해준다.
 post_model *init_post_model_object(const unsigned int uid, char *title, char* writer, char* password, char* content)
 {
     post_model *tmp_post_model = (post_model *)malloc(sizeof(post_model));
@@ -66,6 +66,13 @@ post_model *init_post_model_object(const unsigned int uid, char *title, char* wr
     return tmp_post_model;
 }
 
+/// @brief post_model의 내용물을 바꿀 수 있는 함수. 파라미터에 대한 고민이 조금 남아있다.
+/// @param post_model_to_edit 변경 할 post_model
+/// @param uid 이건 안바뀔거같아서 지워도 될듯?
+/// @param title 새 제목
+/// @param writer 작성자도 안바뀔거같아서 지워도 될듯?
+/// @param password 이것도 바뀔일 없어서 지워도 될듯?
+/// @param content 새 내용
 void edit_post_model_object_with_data( post_model *post_model_to_edit,
     const unsigned int uid, char *title, char* writer, char* password, char* content)
 {
@@ -89,6 +96,8 @@ void edit_post_model_object_with_data( post_model *post_model_to_edit,
     
 }
 
+/// @brief 생성된 post_model을 post_model_array에 추가하는 함수. 만약 첫 게시글이라면 malloc을 통해 메모리를 확보하고, 기존의 배열에 추가하는 경우 realloc을 통해 배열을 확장한다.
+/// @param post_model_to_add 추가 할 post_model
 void add_post_model_to_post_array(post_model *post_model_to_add)
 {
     if(post_count == 0)
@@ -98,11 +107,13 @@ void add_post_model_to_post_array(post_model *post_model_to_add)
     else
     {
         post_model_array = (post_model **)realloc(post_model_array, sizeof(post_model*) * (post_count+1));
-        printf("커져라!\n");
     }
     
 }
 
+/// @brief 파라미터를 통해 전달받은 uid를 통해 post_model을 색인하는 함수
+/// @param uid 찾을 post_model의 unique_id. 게시글 번호
+/// @return 만약 적절한 값을 입력했다면 찾아주고, 아니면 NULL을 리턴
 post_model *find_post_model_from_array_with_uid(unsigned int uid)
 {
     for(int i = 0; i < post_count; i++)
@@ -116,7 +127,7 @@ post_model *find_post_model_from_array_with_uid(unsigned int uid)
 }
 
 
-
+/// @brief 게시글 갯수를 리턴하는 함수...인데 쓸일이 있을진 미지수
 unsigned int get_post_count()
 {
     return post_count;
