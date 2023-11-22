@@ -52,5 +52,5 @@ bool write_format_to_file(post_model *format)
 
     file_close(created_file_descriptor);
 
-
+    return true;
 }

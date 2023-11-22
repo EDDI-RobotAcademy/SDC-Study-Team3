@@ -5,11 +5,9 @@
 extern "C" {
 #endif
 
-#include "../../../adapter/api/request/board_operation_request.h"
+#include "../../../domain/model/post_model.h"
 
-void post_add(board_operation_request *request);
-
-void wirte_post(post_model *model_to_write, char keyboard_input[]);
+void post_add();
 
 #ifdef __cplusplus
 }

@@ -6,9 +6,7 @@
 extern "C" {
 #endif
 
-#include "../../../adapter/api/request/board_operation_request.h"
-
-void post_list(board_operation_request *);
+void post_list();
 
 
 #ifdef __cplusplus

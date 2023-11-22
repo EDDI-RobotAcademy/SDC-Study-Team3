@@ -5,11 +5,11 @@
 extern "C" {
 #endif
 
-#include "../../../adapter/api/request/board_operation_request.h"
+#include "../../../domain/model/post_model.h"
 
-void post_edit(board_operation_request *request);
-
-void edit(unsigned int uid);
+void post_edit();
+void check_password(post_model *model_to_check);
+void edit(post_model *model_to_edit);
 
 #ifdef __cplusplus
 }

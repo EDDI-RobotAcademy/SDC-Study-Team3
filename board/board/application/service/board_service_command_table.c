@@ -7,7 +7,7 @@
 #include "delete/delete_service_command_handler.h"
 #include "board_service_command_table.h"
 
-void just_dummy(board_operation_request *nothing)
+void just_dummy()
 {
     printf("단순 더미\n");
 }

@@ -21,55 +21,6 @@
 
 #include <stdlib.h>
 
-board_operation_request *init_board_operation_request(post_model *first_board)
-{
-    board_operation_request *board_request = (board_operation_request *)malloc(sizeof(board_operation_request));
-
-    board_request->first_board = first_board;
-
-    return board_request;
-}
-
-/// @brief 입력받은 내용을 post_model->title에 저장하는 함수.
-/// @param post_from_request 저장 할 post_model
-/// @param title 저장 될 내용. user가 직접 입력한 값이다.
-void set_post_model_title_from_input(post_model *post_from_request, char *title)
-{
-    int title_length = strlen(title) + 1;
-    post_from_request->title = (char *)malloc(sizeof(char) * title_length);
-    strncpy(post_from_request->title, title, title_length);
-}
-
-/// @brief 입력받은 내용을 post_model->writer에 저장하는 함수.
-/// @param post_from_request 저장 할 post_model
-/// @param writer 저장 될 내용. user가 직접 입력한 값이다.
-void set_post_model_writer_from_input(post_model *post_from_request, char *writer)
-{
-    int writer_length = strlen(writer) + 1;
-    post_from_request->writer = (char *)malloc(sizeof(char) * writer_length);
-    strncpy(post_from_request->writer, writer, writer_length);
-}
-
-/// @brief 입력받은 내용을 post_model->password에 저장하는 함수.
-/// @param post_from_request 저장 할 post_model
-/// @param password 저장 될 내용. user가 직접 입력한 값이다.
-void set_post_model_password_from_input(post_model *post_from_request, char *password)
-{
-    int password_length = strlen(password) + 1;
-    post_from_request->password = (char *)malloc(sizeof(char) * password_length);
-    strncpy(post_from_request->password, password, password_length);
-}
-
-/// @brief 입력받은 내용을 post_model->content에 저장하는 함수.
-/// @param post_from_request 저장 할 post_model
-/// @param content 저장 될 내용. user가 직접 입력한 값이다.
-void set_post_model_content_from_input(post_model *post_from_request, char *content)
-{
-    int content_length = strlen(content) + 1;
-    post_from_request->content = (char *)malloc(sizeof(char) * content_length);
-    strncpy(post_from_request->content, content, content_length);
-}
-
 
 // 사용자 입력을 요청하는 함수. 
 // 현재는 프로그램 실행 시 게시글 목록과 함께 뜰만한 내용으로 작성되어있다. 
@@ -102,11 +53,9 @@ void request_board_operation()
     {
         
         // 아직은 board_operation_request를 통해 table을 호출하지만, 곧 지워질 내용
-        board_operation_request *request = init_board_operation_request(tmp_post_model);
-
 
         //입력받은 내용을 바탕으로 적절한 service_command를 호출함
-        board_service_command_table[index](request);
+        board_service_command_table[index];
     }
     
 

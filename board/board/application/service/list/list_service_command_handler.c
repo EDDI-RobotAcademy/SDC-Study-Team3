@@ -2,7 +2,8 @@
 
 #include <stdio.h>
 
-void post_list(board_operation_request *request)
+
+void post_list()
 {
     printf("ddd");
 }

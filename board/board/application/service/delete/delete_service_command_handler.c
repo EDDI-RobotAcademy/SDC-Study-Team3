@@ -7,10 +7,11 @@
 
 // request를 통해 호출될 함수
 // mapper를 통해 table이랑 연결된다.
-// request_form의 구조를 변경할지 고민중
-void post_delete(board_operation_request *request_form)
+void post_delete()
 {
-   delete_post_model_from_post_array(request_form->first_board->unique_id);
+    unsigned int uid = get_uid_from_input_with_message("삭제 할 게시글의 번호를 입력 해 주세요: ");
+
+    delete_post_model_from_post_array(uid);
 }
 // 실제 구동 될 함수
 void delete_post_model_from_post_array(unsigned int uid)
@@ -46,34 +47,5 @@ void delete_post_model_from_post_array(unsigned int uid)
 
 }
 
-void delete_test()
-{
-   init_post_model_object(NEW_POST,"asd","qwe","zxc","qweasdzxc");
-    init_post_model_object(NEW_POST,"123","456","789","987654321");
-    init_post_model_object(NEW_POST,"iop","uio","hjk","yuirtyurh");
-    init_post_model_object(NEW_POST,"ddfgj","tryet","cvbm","gqwertxdgfhj");
 
-    printf("삭제 전\n\n");
-    for(unsigned int i =0; i<4; i++)
-    {
-        printf("%d\n",i);
-        printf("uid: %d\ntitle: %s\nwriter: %s\ncontents: %s\n", 
-            post_model_array[i]->unique_id,post_model_array[i]->title, 
-            post_model_array[i]->writer, post_model_array[i]->content);
-        printf("\n");
-    }
-    delete_post_model_from_post_array(2);
-
-
-    printf("삭제 후\n\n");
-    for(unsigned int i =0; i<3; i++)
-    {
-        printf("%d\n",i);
-        printf("uid: %d\ntitle: %s\nwriter: %s\ncontents: %s\n", 
-            post_model_array[i]->unique_id,post_model_array[i]->title, 
-            post_model_array[i]->writer, post_model_array[i]->content);
-        printf("\n");
-    }
-    
-}
 

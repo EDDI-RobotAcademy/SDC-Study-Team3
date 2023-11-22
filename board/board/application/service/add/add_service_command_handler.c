@@ -6,34 +6,36 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 
-/// @brief mapper를 통해 호출되는 함수. 게시글 추가
-/// @param request 곧 사라질 파라미터
-void post_add(board_operation_request *request)
+// mapper를 통해 호출되는 함수. 게시글 추가
+// keyboard_input을 받아 post_model을 작성 한 뒤, post_array에 추가한다.
+void post_add()
 {
-    char keyboard_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
-    wirte_post(request->first_board, keyboard_input_from_user);
-}
-/// @brief keyboard_input을 받아 post_model을 작성 한 뒤, post_array에 추가하는 함수
-/// @param model_to_write 사라져도 무방한 함수. 함수 내부에서 malloc하여 새로 선언하면 된다.
-/// @param keyboard_input 키보드 입력을 저장할 char배열. MAX_USER_KEYBOARD_INPUT = 128로 제한을 둔다.
-void wirte_post(post_model *model_to_write, char keyboard_input[])
-{
+    char title_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
+    char writer_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
+    char password_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
+    char content_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
+
+    post_model *model_to_write = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
+
      printf("제목을 입력하세요.\n");
-    get_user_keyboard_input(keyboard_input);
-    set_post_model_title_from_input(model_to_write, keyboard_input);
+    get_user_keyboard_input(title_input_from_user);
+    set_post_model_title_from_input(model_to_write, title_input_from_user);
     
     printf("작성자를 입력하세요.\n");
-    get_user_keyboard_input(keyboard_input);
-    set_post_model_writer_from_input(model_to_write, keyboard_input);
+    get_user_keyboard_input(writer_input_from_user);
+    set_post_model_writer_from_input(model_to_write, writer_input_from_user);
 
     printf("비밀번호를 입력하세요.\n");
-    get_user_keyboard_input(keyboard_input);
-    set_post_model_password_from_input(model_to_write, keyboard_input);
+    get_user_keyboard_input(password_input_from_user);
+    set_post_model_password_from_input(model_to_write, password_input_from_user);
     
     printf("내용을 입력하세요.\n");
-    get_user_keyboard_input(keyboard_input);
-    set_post_model_content_from_input(model_to_write, keyboard_input);
+    get_user_keyboard_input(content_input_from_user);
+    set_post_model_content_from_input(model_to_write, content_input_from_user);
 
     add_post_model_to_post_array(model_to_write);
+
+   
 }
