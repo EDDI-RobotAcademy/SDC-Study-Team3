@@ -20,10 +20,10 @@ struct _board_operation_request
 board_operation_request *init_board_operation_request(post_model *);
 void request_board_operation();
 
-void post_model_title_from_request(post_model *post_from_request, char *title);
-void post_model_writer_from_request(post_model *post_from_request, char *writer);
-void post_model_password_from_request(post_model *post_from_request, char *password);
-void post_model_contents_from_request(post_model *post_from_request, char *content);
+void set_post_model_title_from_input(post_model *post_from_request, char *title);
+void set_post_model_writer_from_input(post_model *post_from_request, char *writer);
+void set_post_model_password_from_input(post_model *post_from_request, char *password);
+void set_post_model_content_from_input(post_model *post_from_request, char *content);
 
 
 #ifdef __cplusplus

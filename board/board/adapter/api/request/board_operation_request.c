@@ -33,7 +33,7 @@
 /// @brief 입력받은 내용을 post_model->title에 저장하는 함수.
 /// @param post_from_request 저장 할 post_model
 /// @param title 저장 될 내용. user가 직접 입력한 값이다.
-void post_model_title_from_request(post_model *post_from_request, char *title)
+void set_post_model_title_from_input(post_model *post_from_request, char *title)
 {
     int title_length = strlen(title) + 1;
     post_from_request->title = (char *)malloc(sizeof(char) * title_length);
@@ -43,7 +43,7 @@ void post_model_title_from_request(post_model *post_from_request, char *title)
 /// @brief 입력받은 내용을 post_model->writer에 저장하는 함수.
 /// @param post_from_request 저장 할 post_model
 /// @param writer 저장 될 내용. user가 직접 입력한 값이다.
-void post_model_writer_from_request(post_model *post_from_request, char *writer)
+void set_post_model_writer_from_input(post_model *post_from_request, char *writer)
 {
     int writer_length = strlen(writer) + 1;
     post_from_request->writer = (char *)malloc(sizeof(char) * writer_length);
@@ -53,7 +53,7 @@ void post_model_writer_from_request(post_model *post_from_request, char *writer)
 /// @brief 입력받은 내용을 post_model->password에 저장하는 함수.
 /// @param post_from_request 저장 할 post_model
 /// @param password 저장 될 내용. user가 직접 입력한 값이다.
-void post_model_password_from_request(post_model *post_from_request, char *password)
+void set_post_model_password_from_input(post_model *post_from_request, char *password)
 {
     int password_length = strlen(password) + 1;
     post_from_request->password = (char *)malloc(sizeof(char) * password_length);
@@ -63,7 +63,7 @@ void post_model_password_from_request(post_model *post_from_request, char *passw
 /// @brief 입력받은 내용을 post_model->content에 저장하는 함수.
 /// @param post_from_request 저장 할 post_model
 /// @param content 저장 될 내용. user가 직접 입력한 값이다.
-void post_model_contents_from_request(post_model *post_from_request, char *content)
+void set_post_model_content_from_input(post_model *post_from_request, char *content)
 {
     int content_length = strlen(content) + 1;
     post_from_request->content = (char *)malloc(sizeof(char) * content_length);

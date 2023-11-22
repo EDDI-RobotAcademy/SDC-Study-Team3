@@ -21,19 +21,19 @@ void wirte_post(post_model *model_to_write, char keyboard_input[])
 {
      printf("제목을 입력하세요.\n");
     get_user_keyboard_input(keyboard_input);
-    post_model_title_from_request(model_to_write, keyboard_input);
+    set_post_model_title_from_input(model_to_write, keyboard_input);
     
     printf("작성자를 입력하세요.\n");
     get_user_keyboard_input(keyboard_input);
-    post_model_writer_from_request(model_to_write, keyboard_input);
+    set_post_model_writer_from_input(model_to_write, keyboard_input);
 
     printf("비밀번호를 입력하세요.\n");
     get_user_keyboard_input(keyboard_input);
-    post_model_password_from_request(model_to_write, keyboard_input);
+    set_post_model_password_from_input(model_to_write, keyboard_input);
     
     printf("내용을 입력하세요.\n");
     get_user_keyboard_input(keyboard_input);
-    post_model_contents_from_request(model_to_write, keyboard_input);
+    set_post_model_content_from_input(model_to_write, keyboard_input);
 
     add_post_model_to_post_array(model_to_write);
 }
