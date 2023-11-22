@@ -24,9 +24,7 @@ struct _post_model
 extern post_model **post_model_array;
 
 
-post_model *init_post_model_object(
-	const unsigned int uid, char *title, char* writer, 
-	char* password, char* content);
+post_model *init_post_model_object(const int max_text_length);
 
 void edit_post_model_with_new_title_and_content( post_model *post_model_to_set, char *title, char* content);
 
@@ -40,6 +38,8 @@ void set_post_model_title_from_input(post_model *post_from_request, char *title)
 void set_post_model_writer_from_input(post_model *post_from_request, char *writer);
 void set_post_model_password_from_input(post_model *post_from_request, char *password);
 void set_post_model_content_from_input(post_model *post_from_request, char *content);
+
+unsigned int get_uid_from_input_with_message(char message[]);
 
 #ifdef __cplusplus
 }
