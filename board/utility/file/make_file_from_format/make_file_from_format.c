@@ -54,3 +54,26 @@ bool write_format_to_file(post_model *format)
 
     return true;
 }
+
+bool write_file_with_array()
+{
+    int post_count = get_post_count();
+    int loop;
+    int created_file_descriptor = file_open(
+        "/home/eddi/teamProj/SDC-Study-Team3/board/created_file/format_test.txt", 
+            O_CREAT | O_RDWR | O_TRUNC, 0644);
+
+    for(loop = 0; loop < post_count; loop++)
+    {
+        char write_contents[BUDDY_PAGE_SIZE] = { 0 };
+        adjust_write_contents_from_format(write_contents, post_model_array[loop]);
+        write_content_in_file(created_file_descriptor, write_contents);
+        printf("냠냠");
+    }
+
+    file_close(created_file_descriptor);
+
+
+
+    return  true;
+}

@@ -16,6 +16,7 @@ int file_open(char *filename, int option, unsigned int permission)
     }
 
     return file_descriptor;
+    
 }
 
 void file_close(int file_descriptor)

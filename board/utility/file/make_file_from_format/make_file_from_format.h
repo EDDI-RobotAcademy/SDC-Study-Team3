@@ -11,6 +11,8 @@ extern "C"{
 
 bool write_format_to_file(post_model *);
 
+bool write_file_with_array();
+
 #ifdef __cplusplus
 }
 #endif

@@ -7,6 +7,7 @@
 
 #include "../../../../utility/keyboard_input/keyboard_input.h"
 #include "../../../adapter/api/request/board_operation_request.h"
+#include "../../../../utility/file/make_file_from_format/make_file_from_format.h"
 
 
 /// @brief 게시글 수정. 수정 할 게시글의 uid를 입력받아 post_model을 찾은 뒤 비밀번호 대조로 이행된다.
@@ -40,7 +41,7 @@ void check_password(post_model *model_to_check)
     else
     {
         printf("비밀번호가 일치하지 않습니다.\n");
-        request_board_operation();
+        //request_board_operation();
     }
 
 
@@ -61,9 +62,10 @@ void edit(post_model *model_to_edit)
     get_user_keyboard_input_with_message("새로운 내용을 입력 해 주세요: ", content_input);
     set_post_model_content_from_input(model_to_edit, content_input);
 
+    write_file_with_array();
 
     printf("수정 완료!\n");
     printf("게시판으로 돌아갑니다!\n");
 
-    request_board_operation();
+    //request_board_operation();
 }

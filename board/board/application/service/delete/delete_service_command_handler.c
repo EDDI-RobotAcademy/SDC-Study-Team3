@@ -4,6 +4,7 @@
 #include "delete_service_command_handler.h"
 #include "../board_service_command.h"
 #include "../../../domain/model/post_model.h"
+#include "../../../../utility/file/make_file_from_format/make_file_from_format.h"
 
 // request를 통해 호출될 함수
 // mapper를 통해 table이랑 연결된다.
@@ -43,7 +44,7 @@ void delete_post_model_from_post_array(unsigned int uid)
 
     post_model_array = tmp_array;
 
-   
+    write_file_with_array();
 
 }
 

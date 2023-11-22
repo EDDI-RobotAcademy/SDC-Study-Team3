@@ -1,7 +1,10 @@
 #include "add_service_command_handler.h"
 
 #include "../../../../utility/keyboard_input/keyboard_input.h"
+#include "../../../../utility/file/make_file_from_format/make_file_from_format.h"
 #include "../../../adapter/api/request/board_operation_request.h"
+
+
 
 
 
@@ -36,6 +39,8 @@ void post_add()
     set_post_model_content_from_input(model_to_write, content_input_from_user);
 
     add_post_model_to_post_array(model_to_write);
+
+    write_format_to_file(model_to_write);
 
    
 }
