@@ -16,9 +16,9 @@ struct _post_model
     unsigned int unique_id;
 	char *title;
 	char *writer;
-	char *content;	
 	char *password;
-
+	char *content;	
+	
 };
 
 extern post_model **post_model_array;
