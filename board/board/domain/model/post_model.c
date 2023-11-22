@@ -68,27 +68,15 @@ post_model *init_post_model_object(const unsigned int uid, char *title, char* wr
 
 /// @brief post_model의 내용물을 바꿀 수 있는 함수. 파라미터에 대한 고민이 조금 남아있다.
 /// @param post_model_to_edit 변경 할 post_model
-/// @param uid 이건 안바뀔거같아서 지워도 될듯?
 /// @param title 새 제목
-/// @param writer 작성자도 안바뀔거같아서 지워도 될듯?
-/// @param password 이것도 바뀔일 없어서 지워도 될듯?
 /// @param content 새 내용
-void edit_post_model_object_with_data( post_model *post_model_to_edit,
-    const unsigned int uid, char *title, char* writer, char* password, char* content)
+void edit_post_model_with_new_title_and_content( post_model *post_model_to_edit, char *title, char* content)
 {
-      int title_length = strlen(title) + 1;
-    int writer_length = strlen(writer) + 1;
-    int password_length = strlen(password) + 1;
+    int title_length = strlen(title) + 1;
     int content_length = strlen(content) + 1;
 
     post_model_to_edit->title = (char *)realloc(post_model_to_edit->title, sizeof(char) * title_length);
     strncpy(post_model_to_edit->title, title, title_length);
-
-    post_model_to_edit->writer = (char *)realloc(post_model_to_edit->writer, sizeof(char) * writer_length);
-    strncpy(post_model_to_edit->writer, writer, writer_length);
-
-    post_model_to_edit->password = (char *)realloc(post_model_to_edit->password, sizeof(char) * password_length);
-    strncpy(post_model_to_edit->password, password, password_length);
 
     post_model_to_edit->content = (char *)realloc(post_model_to_edit->content, sizeof(char) * content_length);
     strncpy(post_model_to_edit->content, content, content_length);

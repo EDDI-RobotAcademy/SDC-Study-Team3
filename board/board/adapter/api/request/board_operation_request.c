@@ -21,14 +21,14 @@
 
 #include <stdlib.h>
 
-// board_operation_request *init_board_operation_request(post_model *first_board)
-// {
-//     board_operation_request *board_request = (board_operation_request *)malloc(sizeof(board_operation_request));
+board_operation_request *init_board_operation_request(post_model *first_board)
+{
+    board_operation_request *board_request = (board_operation_request *)malloc(sizeof(board_operation_request));
 
-//     board_request->first_board = first_board;
+    board_request->first_board = first_board;
 
-//     return board_request;
-// }
+    return board_request;
+}
 
 /// @brief 입력받은 내용을 post_model->title에 저장하는 함수.
 /// @param post_from_request 저장 할 post_model
@@ -96,7 +96,7 @@ void request_board_operation()
     if(index<1 || index > 5)
     {
         printf("잘못 된 번호입니다.\n");
-        request_board_operation();
+      //  request_board_operation();
     }
     else
     {
