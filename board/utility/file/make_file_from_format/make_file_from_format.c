@@ -11,6 +11,10 @@
 
 #define START_INDEX                 0
 
+
+/// @brief post_model의 내용물을 한줄로 바꿔주는 함수
+/// @param contents 한줄로 바뀐 내용물을 저장할 char배열
+/// @param format 한줄로 바꿀 post_model
 void adjust_write_contents_from_format(char *contents, post_model *format)
 {
     int unique_id_size;
@@ -23,6 +27,8 @@ void adjust_write_contents_from_format(char *contents, post_model *format)
     printf("contents: %s\n", contents);
 }
 
+/// @brief post_model을 파일의 다음 항목으로써 저장하는 함수
+/// @param format 저장 할 post_model
 bool write_format_to_file(post_model *format)
 {
     char write_contents[BUDDY_PAGE_SIZE] = { 0 };
@@ -55,6 +61,9 @@ bool write_format_to_file(post_model *format)
     return true;
 }
 
+// post_model_array에서 post_model을 하나씩 꺼낸 뒤, file에 쓰는 함수
+// 기존 파일 내용을 전부 지운 뒤 하나부터 다시 쓴다
+// edit, delete 이후 호출되어야함
 bool write_file_with_array()
 {
     int post_count = get_post_count();

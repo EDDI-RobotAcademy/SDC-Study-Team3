@@ -15,7 +15,7 @@ extern "C" {
 // 리턴타입 (* 포인터 변수) (파라메터) 형태로 작성해야함
 // 여기 typedef는 void (*)(void) 형태를
 // vector_service_call_ptr_t로 대체해서 적겠음을 의미함
-typedef void (* board_service_call_ptr_t) (void *);
+typedef void (* board_service_call_ptr_t) (void);
 
 // 결국 아래는 함수 포인터 배열을 의미함
 extern const board_service_call_ptr_t 

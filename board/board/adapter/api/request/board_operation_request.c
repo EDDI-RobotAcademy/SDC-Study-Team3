@@ -5,17 +5,12 @@
 #include "board_operation_request.h"
 
 #include "../../../../utility/keyboard_input/keyboard_input.h"
-#include "../board_api_command.h"
-#include "../board_api_command_table.h"
-#include "../board_api_command_table_mapper.h"
+
 
 // #include "../../../application/service/board_service_command.h"
 // #include "../../../application/service/board_service_command_table.h"
 //#include "../../../application/service/board_service_command_table_mapper.h"
 
-#include "../../../application/service/board_service_command.h"
-#include "../../../application/service/board_service_command_table.h"
-#include "../../../application/service/board_service_command_table_mapper.h"
 
 
 
@@ -55,7 +50,7 @@ void request_board_operation()
         // 아직은 board_operation_request를 통해 table을 호출하지만, 곧 지워질 내용
 
         //입력받은 내용을 바탕으로 적절한 service_command를 호출함
-        board_service_command_table[index];
+        
     }
     
 
