@@ -77,5 +77,7 @@ int main (void)
     //board_service_command_table[BOARD_SERVICE_LIST]();
 
    // board_api_command_table[0]();
+
+   
     return 0;
 }

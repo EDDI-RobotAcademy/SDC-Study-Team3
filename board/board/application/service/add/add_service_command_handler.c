@@ -38,9 +38,14 @@ void post_add()
     get_user_keyboard_input(content_input_from_user);
     set_post_model_content_from_input(model_to_write, content_input_from_user);
 
+
+    // 최종확인에 관한 내용
+
     add_post_model_to_post_array(model_to_write);
 
     write_format_to_file(model_to_write);
 
-   
+    
+
+    request_board_operation();
 }

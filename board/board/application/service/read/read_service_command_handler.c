@@ -17,12 +17,11 @@
 
 // 뒤로가기 버튼을 입력받는 함수. 
 // 만약 다른걸 누를 시 한번 더 호출되며 입력을 대기한다.
+// Y나 y를 입력하기 전까지 대기하는 무한의 굴레
 void check_return_to_list_with_keyboard_input()
 {
    char keyboard_input[MAX_USER_KEYBOARD_INPUT] = { 0 };
    char *input = get_user_keyboard_input_with_message("뒤로 가기를 원하십니까? (Y/N)", keyboard_input);
-   printf("input: %s\n",input);
-   printf("%d\n",strncmp(input,"Y",1));
    if(!strncmp(input,"Y",1) || !strncmp(input,"y",1) )
    {
      // board_service_command_table[BOARD_SERVICE_LIST]();
