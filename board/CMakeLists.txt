@@ -1,5 +1,3 @@
-# CMakeLists.txt
-
 cmake_minimum_required(VERSION 3.16)
 project(test_app C CXX)
 
@@ -23,27 +21,36 @@ endif()
 
 enable_testing()
 
-# C source files
-# 기존의 main.c에 병합될 소스코드(원래 하던대로 넣으면 됨)
+# 기존의 main.c에 병합될 소스 코드들(원래 하던 대로 넣으면 됨)
 file(GLOB C_SOURCES
-    "*.c"
     "board/domain/model/*.c"
+    #"board/adapter/api/*.c"
+    "board/adapter/api/request/*.c"
+    "board/application/service/*.c"
+    "board/application/service/add/*.c"
+    "board/application/service/delete/*.c"
+    "board/application/service/edit/*.c"
+    "board/application/service/list/*.c"
+    "board/application/service/read/*.c"
+    "utility/keyboard_input/*.c"
+    "utility/file/file_io/*.c"
+    "utility/file/make_format_from_file/*.c"
+    "utility/file/make_file_from_format/*.c"
 )
 
-# C++ test source files
-# test로 사용할 파일들을 여기에 배치
-# network 폴더를 사용한다면 tests/network/*.cpp 형태로 작성
+
+# test로 사용할 파일들은 여기에 정보 배치
+# network을 테스트한다면 "tests/network/*.cpp" 와 같은 형태로 만듭니다.
+# 결론적으로 test 또한 Domain 관리를 해야하기 때문
 file(GLOB CPP_TEST_SOURCES
     "tests/*.cpp"
-
 )
 
-# Create a library from the shared C source files
-add_library(simple_lib ${C_SOURCES})
+add_library(logic_lib ${C_SOURCES})
 
 # Test executable (C and C++)
 add_executable(every_unit_test ${CPP_TEST_SOURCES} "tests/test_main.cpp" ${C_SOURCES})
-target_link_libraries(every_unit_test PRIVATE ${GTEST_LIBRARIES} pthread simple_lib)
+target_link_libraries(every_unit_test PRIVATE ${GTEST_LIBRARIES} pthread logic_lib)
 
 add_test(NAME every_unit_test COMMAND every_unit_test)
 set_tests_properties(every_unit_test PROPERTIES FAIL_REGULAR_EXPRESSION ".*[Ff]ail.*")
@@ -60,26 +67,16 @@ add_custom_command(
     VERBATIM
 )
 
-
-# # Custom target to build c_app only if tests pass
-# add_custom_target(build_c_app
-#     DEPENDS every_unit_test
-# )
-
-# Main application (C)
 file(GLOB MAIN_SOURCES
     "*.c"
-    
 )
 
-# Only build c_app if every_unit_test is successful
 add_executable(
     c_app
     ${C_SOURCES}
     ${MAIN_SOURCES}
 )
 
-# Set 'make run' as the default target
 add_custom_target(run
     DEPENDS every_unit_test
 )
