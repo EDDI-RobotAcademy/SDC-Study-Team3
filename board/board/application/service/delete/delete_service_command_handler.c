@@ -41,9 +41,10 @@ void delete_post_model_from_post_array(unsigned int uid)
     }
 
     post_model_array = (post_model **)realloc(post_model_array, sizeof(post_model*) * (current_post_count-1));
-
+    
     post_model_array = tmp_array;
-
+    
+    decrement_post_count();
     write_file_with_array();
 
 }

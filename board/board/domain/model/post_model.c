@@ -24,6 +24,11 @@ int increment_post_model_unique_id()
     return post_model_unique_id++;
 }
 
+void decrement_post_count()
+{
+    post_count--;
+}
+
 /// @brief post_model을 생성하는 함수
 /// @param max_text_length 사용자 입력 최대값. 메모리 공간을 미리 확보하기 위해 선언
 /// @return 선언을 함과 동시에 쓸 수 있도록 post_model을 리턴해준다.
