@@ -3,8 +3,8 @@
 #include <string.h>
 #include <stdbool.h>
 
-#include "board/application/service/delete/delete_service_command_handler.h"
-#include "board/domain/model/post_model.h"
+
+
 #include "board/adapter/api/request/board_operation_request.h"
 
 
@@ -12,12 +12,19 @@
 #include "utility/keyboard_input/keyboard_input.h"
 
 #include "utility/file/file_io/make_file.h"
+#include "utility/file/file_io/read_data.h"
 #include "utility/file/make_file_from_format/make_file_from_format.h"
+#include "utility/file/make_format_from_file/make_format_from_file.h"
 
+#include "board/application/service/delete/delete_service_command_handler.h"
+#include "board/application/service/add/add_service_command_handler.h"
+#include "board/application/service/edit/edit_service_command_handler.h"
 #include "board/application/service/list/list_service_command_handler.h"
+#include "board/application/service/read/read_service_command_handler.h"
+#include "board/application/service/board_service_command_table.h"
+#include "board/application/service/board_service_command.h"
 
-
-
+#include "board/domain/model/post_model.h"
 
 int main (void)
 {
@@ -92,6 +99,8 @@ int main (void)
 
     //request_board_operation();
 
-    post_list();
+    //post_list();
+
+    board_service_command_table[BOARD_SERVICE_READ]();
     return 0;
 }
