@@ -11,8 +11,10 @@
 
 #include "utility/keyboard_input/keyboard_input.h"
 
-#include "utility/file/make_file/make_file.h"
+#include "utility/file/file_io/make_file.h"
 #include "utility/file/make_file_from_format/make_file_from_format.h"
+
+#include "board/application/service/list/list_service_command_handler.h"
 
 
 
@@ -20,41 +22,41 @@
 int main (void)
 {
     #pragma region DELETE_TEST
-    post_model *m1 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
-    post_model *m2 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
-    post_model *m3 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
-    post_model *m4 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
-    m1->title = "ASdasdasd";
-    m1->content = "내내내내낸";
-    m1->writer = "조정환";
+    // post_model *m1 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
+    // post_model *m2 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
+    // post_model *m3 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
+    // post_model *m4 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
+    // m1->title = "ASdasdasd";
+    // m1->content = "내내내내낸";
+    // m1->writer = "조정환";
 
-    m2->title = "qweqweqwe";
-    m2->content = "sjsjsjsjjs";
-    m2->writer = "이재승";
+    // m2->title = "qweqweqwe";
+    // m2->content = "sjsjsjsjjs";
+    // m2->writer = "이재승";
 
-     m3->title = "qsadfsadfwere";
-    m3->content = "werrtyrtyrtfgh";
-    m3->writer = "aqwe";
+    //  m3->title = "qsadfsadfwere";
+    // m3->content = "werrtyrtyrtfgh";
+    // m3->writer = "aqwe";
 
-     m4->title = "gfjyititryu";
-    m4->content = "546tryrty";
-    m4->writer = "42536";
+    //  m4->title = "gfjyititryu";
+    // m4->content = "546tryrty";
+    // m4->writer = "42536";
    
-    for(unsigned int i =0; i<4; i++)
-    {
-        printf("%d\n",i);
-        printf("uid: %d\ntitle: %s\nwriter: %s\ncontents: %s\n", 
-            post_model_array[i]->unique_id,post_model_array[i]->title, 
-            post_model_array[i]->writer, post_model_array[i]->content);
-        printf("\n");
-    }
+    // for(unsigned int i =0; i<4; i++)
+    // {
+    //     printf("%d\n",i);
+    //     printf("uid: %d\ntitle: %s\nwriter: %s\ncontents: %s\n", 
+    //         post_model_array[i]->unique_id,post_model_array[i]->title, 
+    //         post_model_array[i]->writer, post_model_array[i]->content);
+    //     printf("\n");
+    // }
 
-    printf("설정 끝");
+    // printf("설정 끝");
 
-    //write_format_to_file(m1);
+    // //write_format_to_file(m1);
 
-    write_file_with_array();
-    printf("파일 만들기 끗");
+    // write_file_with_array();
+    // printf("파일 만들기 끗");
   
     #pragma endregion
     
@@ -88,6 +90,8 @@ int main (void)
 
     // printf("제목: %s\n작성자: %s\n비밀번호: %s\n내용: %s\n",model_to_write->title, model_to_write->writer, model_to_write->password, model_to_write->content);
 
-    request_board_operation();
+    //request_board_operation();
+
+    post_list();
     return 0;
 }

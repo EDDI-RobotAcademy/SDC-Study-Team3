@@ -13,6 +13,11 @@ unsigned int post_count;
 post_model **post_model_array;
 
 
+void set_post_model_unique_id(int uid)
+{
+    post_model_unique_id = uid+1;
+}
+
 // uid가 1씩 자동으로 올라가도록 하는 지역함수
 int increment_post_model_unique_id()
 {
@@ -43,6 +48,38 @@ post_model *init_post_model_object(const int max_text_length)
     return tmp_post_model;
 }
 
+post_model *init_post_model_object_with_data(
+    const unsigned int uid, char *title, char* writer, char* password, char* content)
+{
+    post_model *tmp_post_model = (post_model *)malloc(sizeof(post_model));
+
+    
+    tmp_post_model->unique_id = uid;
+    
+    int title_length = strlen(title) + 1;
+    int writer_length = strlen(writer) + 1;
+    int password_length = strlen(password) + 1;
+    int content_length = strlen(content) + 1;
+
+    tmp_post_model->title = (char *)malloc(sizeof(char) * title_length);
+    strncpy(tmp_post_model->title, title, title_length);
+
+    tmp_post_model->writer = (char *)malloc(sizeof(char) * writer_length);
+    strncpy(tmp_post_model->writer, writer, writer_length);
+
+    tmp_post_model->password = (char *)malloc(sizeof(char) * password_length);
+    strncpy(tmp_post_model->password, password, password_length);
+
+    tmp_post_model->content = (char *)malloc(sizeof(char) * content_length);
+    strncpy(tmp_post_model->content, content, content_length);
+
+    printf("post_count: %d",post_count);
+    post_model_array[post_count] = tmp_post_model;
+
+    post_count++;
+    return tmp_post_model;
+}
+
 /// @brief post_model의 내용물을 바꿀 수 있는 함수. 파라미터에 대한 고민이 조금 남아있다.
 /// @param post_model_to_edit 변경 할 post_model
 /// @param title 새 제목
@@ -61,6 +98,12 @@ void edit_post_model_with_new_title_and_content( post_model *post_model_to_edit,
     
 }
 
+
+post_model **init_post_model_array_with_count(int count)
+{
+    post_model_array = (post_model **)malloc(sizeof(post_model *) * count);
+    return post_model_array;
+}
 
 /// @brief 생성된 post_model을 post_model_array에 추가하는 함수. 만약 첫 게시글이라면 malloc을 통해 메모리를 확보하고, 기존의 배열에 추가하는 경우 realloc을 통해 배열을 확장한다.
 /// @param post_model_to_add 추가 할 post_model

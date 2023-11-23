@@ -32,8 +32,7 @@ file(GLOB C_SOURCES
     "board/application/service/list/*.c"
     "board/application/service/read/*.c"
     "utility/keyboard_input/*.c"
-    "utility/file/make_file/*.c"
-    "utility/file/read_file/*.c"
+    "utility/file/file_io/*.c"
     "utility/file/make_format_from_file/*.c"
     "utility/file/make_file_from_format/*.c"
 )

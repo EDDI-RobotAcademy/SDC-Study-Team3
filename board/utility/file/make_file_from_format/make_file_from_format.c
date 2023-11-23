@@ -1,7 +1,7 @@
 #include "make_file_from_format.h"
 
-#include "../make_file/make_file.h"
-#include "../make_file/write_content.h"
+#include "../file_io/make_file.h"
+#include "../file_io/write_content.h"
 
 #include <stdio.h>
 #include <fcntl.h>
@@ -49,7 +49,7 @@ bool write_format_to_file(post_model *format)
     -rw-r--r-- 1 eddi eddi     0 11월 16 09:24 이거만들래.txt
     */
     int created_file_descriptor = file_open(
-        "/home/eddi/teamProj/SDC-Study-Team3/board/created_file/format_test.txt", 
+        "/home/eddi/teamProj/SDC-Study-Team3/board/created_file/format_post.txt", 
             O_CREAT | O_RDWR | O_APPEND, 0644);
 
     adjust_write_contents_from_format(write_contents, format);
@@ -69,7 +69,7 @@ bool write_file_with_array()
     int post_count = get_post_count();
     int loop;
     int created_file_descriptor = file_open(
-        "/home/eddi/teamProj/SDC-Study-Team3/board/created_file/format_test.txt", 
+        "/home/eddi/teamProj/SDC-Study-Team3/board/created_file/format_post.txt", 
             O_CREAT | O_RDWR | O_TRUNC , 0644);
 
     for(loop = 0; loop < post_count; loop++)

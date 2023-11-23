@@ -7,6 +7,8 @@
 #include "../board/adapter/api/request/board_operation_request.h"
 #include "../utility/keyboard_input/keyboard_input.h"
 
+#include "../board/application/service/list/list_service_command_handler.h"
+
 
 
 TEST(에딧테스트, 수정이_되는지_확인해보자)
@@ -36,6 +38,8 @@ TEST(에딧테스트, 수정이_되는지_확인해보자)
     // EXPECT_NE(model_to_edit->title,"qweasdzxc");
 
 
-    request_board_operation();
+    //request_board_operation();
+
+    //post_list();
 }
 

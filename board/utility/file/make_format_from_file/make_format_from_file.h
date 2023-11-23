@@ -7,7 +7,7 @@ extern "C" {
 
 #include "../../../board/domain/model/post_model.h"
 
-//post_model **read_file_to_format(void);
+void **read_file_to_format(void);
 
 #ifdef __cplusplus
 }
