@@ -70,7 +70,7 @@ bool write_file_with_array()
     int loop;
     int created_file_descriptor = file_open(
         "/home/eddi/teamProj/SDC-Study-Team3/board/created_file/format_test.txt", 
-            O_CREAT | O_RDWR | O_TRUNC, 0644);
+            O_CREAT | O_RDWR | O_TRUNC , 0644);
 
     for(loop = 0; loop < post_count; loop++)
     {

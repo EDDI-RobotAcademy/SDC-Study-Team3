@@ -17,6 +17,7 @@ extern "C" {
 #include "edit/edit_service_command_handler.h"
 #include "delete/delete_service_command_handler.h"
 
+#include "board_service_command_table.h"
 
 
 #define __BOARD_SERVICE_COMMAND_TABLE(number, function_prototype) \

@@ -6,15 +6,16 @@
 
 #include "../../../../utility/keyboard_input/keyboard_input.h"
 
-
 // #include "../../../application/service/board_service_command.h"
+
+#include "../../../application/service/add/add_service_command_handler.h"
+#include "../../../application/service/delete/delete_service_command_handler.h"
+#include "../../../application/service/edit/edit_service_command_handler.h"
+#include "../../../application/service/list/list_service_command_handler.h"
+#include "../../../application/service/read/read_service_command_handler.h"
+
 // #include "../../../application/service/board_service_command_table.h"
-//#include "../../../application/service/board_service_command_table_mapper.h"
-
-
-
-
-#include <stdlib.h>
+// #include "../../../application/service/board_service_command_table_mapper.h"
 
 
 // 사용자 입력을 요청하는 함수. 
@@ -39,18 +40,39 @@ void request_board_operation()
     int index = atoi(keyboard_input_from_user);
 
     // 현재는 명령어 인덱스가 어긋났을 경우에만 예외처리
-    if(index<1 || index > 5)
+    if(index<1 || index > 4)
     {
         printf("잘못 된 번호입니다.\n");
       //  request_board_operation();
     }
     else
     {
-        
         // 아직은 board_operation_request를 통해 table을 호출하지만, 곧 지워질 내용
 
         //입력받은 내용을 바탕으로 적절한 service_command를 호출함
-        
+        //board_service_command_table[index]();
+
+
+        // 매퍼가 자꾸 터져서 일단은 스위치문으로 돌림
+
+        switch (index)
+        {
+            case 1:
+                post_read();
+                break;
+            case 2:
+                post_add();
+                break;
+            case 3:
+                post_edit();
+                break;
+            case 4:
+                post_delete();
+                break;
+            
+            default:
+                break;
+        }
     }
     
 

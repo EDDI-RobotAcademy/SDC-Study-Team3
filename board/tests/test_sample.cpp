@@ -34,5 +34,8 @@ TEST(에딧테스트, 수정이_되는지_확인해보자)
     // set_post_model_content_from_input(model_to_edit, keyboard_input);
 
     // EXPECT_NE(model_to_edit->title,"qweasdzxc");
+
+
+    request_board_operation();
 }
 

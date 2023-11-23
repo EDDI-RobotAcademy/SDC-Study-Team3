@@ -108,7 +108,7 @@ unsigned int get_post_count()
 /// @param title 저장 될 내용. user가 직접 입력한 값이다.
 void set_post_model_title_from_input(post_model *post_from_request, char *title)
 {
-    int title_length = strlen(title) + 1;
+    int title_length = strlen(title) - 1;
     //post_from_request->title = (char *)malloc(sizeof(char) * title_length);
     strncpy(post_from_request->title, title, title_length);
 }
@@ -118,7 +118,7 @@ void set_post_model_title_from_input(post_model *post_from_request, char *title)
 /// @param writer 저장 될 내용. user가 직접 입력한 값이다.
 void set_post_model_writer_from_input(post_model *post_from_request, char *writer)
 {
-    int writer_length = strlen(writer) + 1;
+    int writer_length = strlen(writer) - 1;
     //post_from_request->writer = (char *)malloc(sizeof(char) * writer_length);
     strncpy(post_from_request->writer, writer, writer_length);
 }
@@ -128,7 +128,7 @@ void set_post_model_writer_from_input(post_model *post_from_request, char *write
 /// @param password 저장 될 내용. user가 직접 입력한 값이다.
 void set_post_model_password_from_input(post_model *post_from_request, char *password)
 {
-    int password_length = strlen(password) + 1;
+    int password_length = strlen(password) - 1;
     //post_from_request->password = (char *)malloc(sizeof(char) * password_length);
     strncpy(post_from_request->password, password, password_length);
 }
@@ -138,7 +138,7 @@ void set_post_model_password_from_input(post_model *post_from_request, char *pas
 /// @param content 저장 될 내용. user가 직접 입력한 값이다.
 void set_post_model_content_from_input(post_model *post_from_request, char *content)
 {
-    int content_length = strlen(content) + 1;
+    int content_length = strlen(content) - 1;
     //post_from_request->content = (char *)malloc(sizeof(char) * content_length);
     strncpy(post_from_request->content, content, content_length);
 }

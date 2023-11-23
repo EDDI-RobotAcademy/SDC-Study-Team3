@@ -87,5 +87,7 @@ int main (void)
 
 
     // printf("제목: %s\n작성자: %s\n비밀번호: %s\n내용: %s\n",model_to_write->title, model_to_write->writer, model_to_write->password, model_to_write->content);
+
+    request_board_operation();
     return 0;
 }
