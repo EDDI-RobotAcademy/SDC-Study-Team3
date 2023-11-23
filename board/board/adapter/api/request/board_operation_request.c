@@ -6,16 +6,32 @@
 
 #include "../../../../utility/keyboard_input/keyboard_input.h"
 
-// #include "../../../application/service/board_service_command.h"
+//#include "../board_api_command.h"
+#include "../../../application/service/board_service_command.h"
+
+
+#include "../../../../utility/file/file_io/make_file.h"
+#include "../../../../utility/file/file_io/read_data.h"
+#include "../../../../utility/file/make_file_from_format/make_file_from_format.h"
+#include "../../../../utility/file/make_format_from_file/make_format_from_file.h"
+
 
 #include "../../../application/service/add/add_service_command_handler.h"
 #include "../../../application/service/delete/delete_service_command_handler.h"
 #include "../../../application/service/edit/edit_service_command_handler.h"
 #include "../../../application/service/list/list_service_command_handler.h"
 #include "../../../application/service/read/read_service_command_handler.h"
+#include "../../../application/service/board_service_command_table.h"
 
-// #include "../../../application/service/board_service_command_table.h"
-// #include "../../../application/service/board_service_command_table_mapper.h"
+// #include "../board_api_command_table_mapper.h"
+// #include "../board_api_command_table.h"
+
+
+
+
+
+
+
 
 
 // 사용자 입력을 요청하는 함수. 
@@ -25,6 +41,8 @@ void request_board_operation()
 {
     char keyboard_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
     post_model *tmp_post_model = (post_model *)malloc(sizeof(post_model));
+
+    board_service_command_table[BOARD_SERVICE_LIST]();
 
     // 사용자가 어떠한 명령어를 써야할 지 terminal에 띄우는 역할
     printf("게시판 명령어 리스트\n");
@@ -50,29 +68,29 @@ void request_board_operation()
         // 아직은 board_operation_request를 통해 table을 호출하지만, 곧 지워질 내용
 
         //입력받은 내용을 바탕으로 적절한 service_command를 호출함
-        //board_service_command_table[index]();
+        board_service_command_table[index]();
 
 
         // 매퍼가 자꾸 터져서 일단은 스위치문으로 돌림
 
-        switch (index)
-        {
-            case 1:
-                post_read();
-                break;
-            case 2:
-                post_add();
-                break;
-            case 3:
-                post_edit();
-                break;
-            case 4:
-                post_delete();
-                break;
+        // switch (index)
+        // {
+        //     case 1:
+        //         post_read();
+        //         break;
+        //     case 2:
+        //         post_add();
+        //         break;
+        //     case 3:
+        //         post_edit();
+        //         break;
+        //     case 4:
+        //         post_delete();
+        //         break;
             
-            default:
-                break;
-        }
+        //     default:
+        //         break;
+        // }
     }
     
 

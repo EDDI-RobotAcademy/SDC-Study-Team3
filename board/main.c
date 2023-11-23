@@ -8,7 +8,7 @@
 #include "board/adapter/api/request/board_operation_request.h"
 
 
-
+#include "board/adapter/api/board_api_command.h"
 #include "utility/keyboard_input/keyboard_input.h"
 
 #include "utility/file/file_io/make_file.h"
@@ -23,6 +23,10 @@
 #include "board/application/service/read/read_service_command_handler.h"
 #include "board/application/service/board_service_command_table.h"
 #include "board/application/service/board_service_command.h"
+
+#include "board/adapter/api/board_api_command_table_mapper.h"
+#include "board/adapter/api/board_api_command_table.h"
+
 
 #include "board/domain/model/post_model.h"
 
@@ -67,40 +71,11 @@ int main (void)
   
     #pragma endregion
     
-    // post_model* p = init_post_model_object(NEW_POST,"asd","qwe","zxc","qweasdzxc");
 
-    // write_format_to_file(p);
+    request_board_operation();
 
-    // char title_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
-    // char writer_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
-    // char password_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
-    // char content_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
+    //board_service_command_table[BOARD_SERVICE_LIST]();
 
-    // post_model *model_to_write = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
-
-    //  printf("제목을 입력하세요.\n");
-    // get_user_keyboard_input(title_input_from_user);
-    // set_post_model_title_from_input(model_to_write, title_input_from_user);
-    
-    // printf("작성자를 입력하세요.\n");
-    // get_user_keyboard_input(writer_input_from_user);
-    // set_post_model_writer_from_input(model_to_write, writer_input_from_user);
-
-    // printf("비밀번호를 입력하세요.\n");
-    // get_user_keyboard_input(password_input_from_user);
-    // set_post_model_password_from_input(model_to_write, password_input_from_user);
-    
-    // printf("내용을 입력하세요.\n");
-    // get_user_keyboard_input(content_input_from_user);
-    // set_post_model_content_from_input(model_to_write, content_input_from_user);
-
-
-    // printf("제목: %s\n작성자: %s\n비밀번호: %s\n내용: %s\n",model_to_write->title, model_to_write->writer, model_to_write->password, model_to_write->content);
-
-    //request_board_operation();
-
-    //post_list();
-
-    board_service_command_table[BOARD_SERVICE_READ]();
+   // board_api_command_table[0]();
     return 0;
 }
