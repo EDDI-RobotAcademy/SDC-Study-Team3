@@ -1,0 +1,3 @@
+uid:0,title:여긴어디나는누구,writer:사자,password:0000,content:교수님잘못했어요,
+uid:1,title:시고르원조,writer:호랑이,password:0001,content:낵아 시고르원조다!,
+uid:2,title:시츄,writer:사슴,password:0002,content:게시판아 열려라,
