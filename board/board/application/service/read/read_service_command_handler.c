@@ -3,6 +3,6 @@
 #include <stdio.h>
 void post_read()
 {
-   
+   printf("호출됨\n");
 }
 
