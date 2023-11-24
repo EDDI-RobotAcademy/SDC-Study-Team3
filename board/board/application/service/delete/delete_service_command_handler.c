@@ -67,7 +67,7 @@ void delete_post_model_from_post_array(post_model *model_to_delete)
     write_file_with_array();
   
 
-    request_board_operation();
+    board_operation();
 
 }
 
@@ -108,7 +108,7 @@ void check_password_delete(post_model *model_to_check)
     else
     {
         printf("비밀번호가 일치하지 않습니다.\n");
-        request_board_operation();
+        board_operation();
     }
 
 

@@ -48,7 +48,7 @@ void check_password_edit(post_model *model_to_check)
     else
     {
         printf("비밀번호가 일치하지 않습니다.\n");
-        request_board_operation();
+        board_operation();
     }
 
 
@@ -117,5 +117,5 @@ void edit(post_model *model_to_edit)
     printf("게시판으로 돌아갑니다!\n");
     
 
-    request_board_operation();
+    board_operation();
 }

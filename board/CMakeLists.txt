@@ -24,7 +24,7 @@ enable_testing()
 # 기존의 main.c에 병합될 소스 코드들(원래 하던 대로 넣으면 됨)
 file(GLOB C_SOURCES
     "board/domain/model/*.c"
-    #"board/adapter/api/*.c"
+    "board/adapter/api/*.c"
     "board/adapter/out/*.c"
     "board/adapter/out/list_out/*.c"
     "board/adapter/api/operation/*.c"

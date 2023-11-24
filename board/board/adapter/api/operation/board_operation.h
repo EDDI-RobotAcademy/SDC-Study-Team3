@@ -10,7 +10,7 @@ extern "C" {
 #include "../../../domain/model/post_model.h"
 
 
-void request_board_operation();
+void board_operation();
 
 
 

@@ -63,5 +63,5 @@ void post_add()
     confirm_to_add(model_to_write);
 
     write_file_with_array();
-    request_board_operation();
+    board_operation();
 }

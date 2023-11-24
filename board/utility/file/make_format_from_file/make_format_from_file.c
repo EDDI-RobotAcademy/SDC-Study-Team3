@@ -1,6 +1,7 @@
 #include "make_format_from_file.h"
 
 #include "../file_io/read_data.h"
+#include "../file_io/make_file.h"
 
 #include "../../../board/domain/model/post_model.h"
 
