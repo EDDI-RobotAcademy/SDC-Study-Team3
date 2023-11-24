@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #include "delete_service_command_handler.h"
 #include "../board_service_command.h"
@@ -9,14 +10,7 @@
 
 
 
-// request를 통해 호출될 함수
-// mapper를 통해 table이랑 연결된다.
-void post_delete()
-{
-    unsigned int uid = get_uid_from_input_with_message("삭제 할 게시글의 번호를 입력 해 주세요: ");
-    confirm_to_delete(uid);
-    request_board_operation();
-}
+
 
 void confirm_to_delete(unsigned int uid)
 {
@@ -72,6 +66,15 @@ void delete_post_model_from_post_array(unsigned int uid)
 
     request_board_operation();
 
+}
+
+// request를 통해 호출될 함수
+// mapper를 통해 table이랑 연결된다.
+void post_delete()
+{
+    unsigned int uid = get_uid_from_input_with_message("삭제 할 게시글의 번호를 입력 해 주세요: ");
+    confirm_to_delete(uid);
+    request_board_operation();
 }
 
 

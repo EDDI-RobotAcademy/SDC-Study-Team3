@@ -21,7 +21,7 @@
     add_post_model_to_post_array(model_to_write);
     write_format_to_file(model_to_write);
    }
-      else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) )
+   else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) )
    {
         printf("저장하지 않습니다.");
    }    

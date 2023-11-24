@@ -26,8 +26,8 @@ void check_return_to_list_with_keyboard_input_from_read()
 
    if(!strncmp(input,"Y",1) || !strncmp(input,"y",1) )
    {
-     // board_service_command_table[BOARD_SERVICE_LIST]();
-     request_board_operation();
+      // board_service_command_table[BOARD_SERVICE_LIST]();
+      request_board_operation();
    }
    else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) ) 
    {
@@ -48,7 +48,7 @@ void print_post_model(post_model *model_to_read)
    printf("내용: %s\n", model_to_read->content);
 
    
-   check_return_to_list_with_keyboard_input();  
+   check_return_to_list_with_keyboard_input_from_read();
    
 }
 
