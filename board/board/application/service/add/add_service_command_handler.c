@@ -11,6 +11,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+ void confirm_to_add(post_model *model_to_write)
+{
+   char keyboard_input[MAX_USER_KEYBOARD_INPUT] = { 0 };
+   char *input = get_user_keyboard_input_with_message("작성 내용을 저장 하시겠습니까 ? (Y/N)", keyboard_input);
+   
+   if(!strncmp(input,"Y",1) || !strncmp(input,"y",1) )
+   {
+    add_post_model_to_post_array(model_to_write);
+    write_format_to_file(model_to_write);
+   }
+      else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) )
+   {
+        printf("저장하지 않습니다.");
+   }    
+   else
+   {
+        printf("잘못 입력 하셨습니다.");
+        confirm_to_add(model_to_write);
+   }
+}
+
 // mapper를 통해 호출되는 함수. 게시글 추가
 // keyboard_input을 받아 post_model을 작성 한 뒤, post_array에 추가한다.
 void post_add()
@@ -38,9 +59,7 @@ void post_add()
     get_user_keyboard_input(content_input_from_user);
     set_post_model_content_from_input(model_to_write, content_input_from_user);
 
-    add_post_model_to_post_array(model_to_write);
+    confirm_to_add(model_to_write);
 
-    write_format_to_file(model_to_write);
-
-   
+    request_board_operation();
 }
