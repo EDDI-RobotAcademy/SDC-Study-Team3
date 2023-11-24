@@ -6,7 +6,7 @@ extern "C" {
 #endif
 
 #include "board_service_command.h"
-#include "../../adapter/api/request/board_operation_request.h"
+#include "../../adapter/api/operation/board_operation.h"
 
 //#include "../../adapter/in/api/request/vector_operation_request.h"
 

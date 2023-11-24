@@ -27,7 +27,7 @@ file(GLOB C_SOURCES
     #"board/adapter/api/*.c"
     "board/adapter/out/*.c"
     "board/adapter/out/list_out/*.c"
-    "board/adapter/api/request/*.c"
+    "board/adapter/api/operation/*.c"
     "board/application/service/*.c"
     "board/application/service/add/*.c"
     "board/application/service/delete/*.c"

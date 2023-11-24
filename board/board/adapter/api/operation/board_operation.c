@@ -2,34 +2,15 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "board_operation_request.h"
 
 #include "../../../../utility/keyboard_input/keyboard_input.h"
 
-#include "../../out/list_out/list_out_command_handler.h"
 
-#include "../../out/board_out_command_table.h"
-#include "../../out/board_out_command.h"
-
-//#include "../board_api_command.h"
 #include "../../../application/service/board_service_command.h"
 
+#include "board_operation.h"
 
-#include "../../../../utility/file/file_io/make_file.h"
-#include "../../../../utility/file/file_io/read_data.h"
-#include "../../../../utility/file/make_file_from_format/make_file_from_format.h"
-#include "../../../../utility/file/make_format_from_file/make_format_from_file.h"
-
-
-#include "../../../application/service/add/add_service_command_handler.h"
-#include "../../../application/service/delete/delete_service_command_handler.h"
-#include "../../../application/service/edit/edit_service_command_handler.h"
-#include "../../../application/service/list/list_service_command_handler.h"
-#include "../../../application/service/read/read_service_command_handler.h"
 #include "../../../application/service/board_service_command_table.h"
-
-// #include "../board_api_command_table_mapper.h"
-// #include "../board_api_command_table.h"
 
 
 
@@ -42,7 +23,7 @@
 // 사용자 입력을 요청하는 함수. 
 // 현재는 프로그램 실행 시 게시글 목록과 함께 뜰만한 내용으로 작성되어있다. 
 // 여유가 된다면 변경해야 할 1순위
-void request_board_operation()
+void board_operation()
 {
     char keyboard_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
     post_model *tmp_post_model = (post_model *)malloc(sizeof(post_model));
@@ -66,7 +47,7 @@ void request_board_operation()
     if(index<1 || index > 4)
     {
         printf("잘못 된 번호입니다.\n");
-      //  request_board_operation();
+        request_board_operation();
     }
     else
     {
