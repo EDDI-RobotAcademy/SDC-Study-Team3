@@ -66,8 +66,8 @@ void check_password_edit(post_model *model_to_check)
         write_file_with_array();
            printf("수정 완료!\n");
 
-        printf("model_to_save->title: %s\nmodel_to_save->content: %s\n",model_to_save->title, model_to_save->content);
-        printf("model in array->title: %s\nmodel in array->content: %s\n",find_post_model_from_array_with_uid(model_to_save->unique_id)->title, find_post_model_from_array_with_uid(model_to_save->unique_id)->content);
+      //  printf("model_to_save->title: %s\nmodel_to_save->content: %s\n",model_to_save->title, model_to_save->content);
+      //  printf("model in array->title: %s\nmodel in array->content: %s\n",find_post_model_from_array_with_uid(model_to_save->unique_id)->title, find_post_model_from_array_with_uid(model_to_save->unique_id)->content);
 
    }
       else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) )

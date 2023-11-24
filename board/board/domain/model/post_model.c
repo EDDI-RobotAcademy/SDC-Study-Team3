@@ -78,7 +78,7 @@ post_model *init_post_model_object_with_data(
     tmp_post_model->content = (char *)malloc(sizeof(char) * content_length);
     strncpy(tmp_post_model->content, content, content_length);
 
-    printf("post_count: %d",post_count);
+   // printf("post_count: %d",post_count);
     post_model_array[post_count] = tmp_post_model;
 
     post_count++;
@@ -107,7 +107,7 @@ void edit_post_model_with_new_title_and_content( post_model *post_model_to_edit,
 post_model **init_post_model_array_with_count(int count)
 {
     post_model_array = (post_model **)malloc(sizeof(post_model *) * count);
-    printf("post_model_array %d의 사이즈로 생성됨",count);
+   // printf("post_model_array %d의 사이즈로 생성됨",count);
     return post_model_array;
 }
 
@@ -115,6 +115,7 @@ post_model **init_post_model_array_with_count(int count)
 /// @param post_model_to_add 추가 할 post_model
 void add_post_model_to_post_array(post_model *post_model_to_add)
 {
+   // printf("postcount: %d", post_count);
     if(post_count == 0)
     {
         post_model_array = (post_model **)malloc(sizeof(post_model*));
@@ -140,11 +141,11 @@ post_model *find_post_model_from_array_with_uid(unsigned int uid)
     {
         if(post_model_array[i]->unique_id == uid)
         {
-            printf("post model 찾기 성공: %d번째\n",i);
+          //  printf("post model 찾기 성공: %d번째\n",i);
             return post_model_array[i];
         }
     }
-    printf("post model 찾기 실패!\n");
+    //printf("post model 찾기 실패!\n");
     return NULL;
 }
 
@@ -220,11 +221,11 @@ unsigned int find_array_index_with_uid(unsigned int uid)
     {
         if(post_model_array[i]->unique_id == uid)
         {
-            printf("index 찾기 성공: %d\n",i);
+            //printf("index 찾기 성공: %d\n",i);
             return i;
         }
     }
-    printf("찾기 실패!\n");
+    //printf("찾기 실패!\n");
     return NULL;
 }
 

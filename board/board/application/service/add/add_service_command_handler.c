@@ -18,7 +18,7 @@
    
    if(!strncmp(input,"Y",1) || !strncmp(input,"y",1) )
    {
-    add_post_model_to_post_array(model_to_write);
+    
     write_format_to_file(model_to_write);
    }
    else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) )
@@ -62,6 +62,6 @@ void post_add()
 
     confirm_to_add(model_to_write);
 
-   write_file_with_array();
+    write_file_with_array();
     request_board_operation();
 }
