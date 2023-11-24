@@ -24,6 +24,10 @@ void post_edit()
 /// @param model_to_check 찾은 게시물의 post_model
 void check_password(post_model *model_to_check)
 {
+
+   
+
+
     char password_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
     // // 기존 모델의 비밀번호를 가져오려했는데 생각해보니 그냥 넣으면되네
     // char password[MAX_USER_KEYBOARD_INPUT] = { 0 };
@@ -76,6 +80,7 @@ void check_password(post_model *model_to_check)
 void edit(post_model *model_to_edit)
 {   
     post_model *tmp_post_model_to_edit = (post_model *)malloc(sizeof(post_model));
+
     char title_input[MAX_USER_KEYBOARD_INPUT] = { 0 };
     char content_input[MAX_USER_KEYBOARD_INPUT] = { 0 };
     printf("기존 제목: %s", model_to_edit->title);
@@ -91,5 +96,5 @@ void edit(post_model *model_to_edit)
     printf("수정 완료!\n");
     printf("게시판으로 돌아갑니다!\n");
 
-    //request_board_operation();
+    request_board_operation();
 }

@@ -21,7 +21,7 @@
     add_post_model_to_post_array(model_to_write);
     write_format_to_file(model_to_write);
    }
-      else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) )
+   else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) )
    {
         printf("저장하지 않습니다.");
    }    
@@ -59,7 +59,9 @@ void post_add()
     get_user_keyboard_input(content_input_from_user);
     set_post_model_content_from_input(model_to_write, content_input_from_user);
 
+
     confirm_to_add(model_to_write);
+
 
     request_board_operation();
 }
