@@ -62,10 +62,12 @@ void check_password_edit(post_model *model_to_check)
    if(!strncmp(input,"Y",1) || !strncmp(input,"y",1) )
    {
         model_to_save = tmp_post_model;
+        change_array_content_with_index(find_array_index_with_uid(model_to_save->unique_id),tmp_post_model);
         write_file_with_array();
            printf("수정 완료!\n");
 
-        printf("model_to_save->title: %s\nmodel_to_save->content: %s",model_to_save->title, model_to_save->content);
+        printf("model_to_save->title: %s\nmodel_to_save->content: %s\n",model_to_save->title, model_to_save->content);
+        printf("model in array->title: %s\nmodel in array->content: %s\n",find_post_model_from_array_with_uid(model_to_save->unique_id)->title, find_post_model_from_array_with_uid(model_to_save->unique_id)->content);
 
    }
       else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) )
@@ -87,6 +89,15 @@ void edit(post_model *model_to_edit)
 {   
     printf("\n");
     post_model *tmp_post_model_to_edit = (post_model *)malloc(sizeof(post_model));
+    tmp_post_model_to_edit->unique_id = model_to_edit->unique_id;
+    int writer_len = strlen(model_to_edit->writer);
+    int password_len = strlen(model_to_edit->password);
+
+    tmp_post_model_to_edit->writer = (char *)malloc(sizeof(char) * writer_len);
+    tmp_post_model_to_edit->password = (char *)malloc(sizeof(char) * password_len);
+
+    strncpy(tmp_post_model_to_edit->writer, model_to_edit->writer, writer_len);
+    strncpy(tmp_post_model_to_edit->password, model_to_edit->password, password_len);
  
     char title_input[MAX_USER_KEYBOARD_INPUT] = { 0 };
     char content_input[MAX_USER_KEYBOARD_INPUT] = { 0 };

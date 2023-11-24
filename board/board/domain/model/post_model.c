@@ -140,9 +140,11 @@ post_model *find_post_model_from_array_with_uid(unsigned int uid)
     {
         if(post_model_array[i]->unique_id == uid)
         {
+            printf("post model 찾기 성공: %d번째\n",i);
             return post_model_array[i];
         }
     }
+    printf("post model 찾기 실패!\n");
     return NULL;
 }
 
@@ -210,4 +212,23 @@ unsigned int get_uid_from_input_with_message(char message[])
     unsigned int uid = atoi(keyboard_input_from_user);
 
     return uid;
+}
+
+unsigned int find_array_index_with_uid(unsigned int uid)
+{
+     for(int i = 0; i < post_count; i++)
+    {
+        if(post_model_array[i]->unique_id == uid)
+        {
+            printf("index 찾기 성공: %d\n",i);
+            return i;
+        }
+    }
+    printf("찾기 실패!\n");
+    return NULL;
+}
+
+void change_array_content_with_index(unsigned int index, post_model *model_to_change)
+{
+    post_model_array[index] = model_to_change;
 }

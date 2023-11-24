@@ -42,6 +42,9 @@ void set_post_model_content_from_input(post_model *post_from_request, char *cont
 
 unsigned int get_uid_from_input_with_message(char message[]);
 
+unsigned int find_array_index_with_uid(unsigned int uid);
+void change_array_content_with_index(unsigned int index, post_model *model_to_change);
+
 #ifdef __cplusplus
 }
 #endif
