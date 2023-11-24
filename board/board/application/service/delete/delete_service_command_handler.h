@@ -7,7 +7,7 @@ extern "C" {
 
 #include "../../../domain/model/post_model.h"
 
-#include "../../../adapter/api/request/board_operation_request.h"
+#include "../../../adapter/api/operation/board_operation.h"
 
 void post_delete();
 

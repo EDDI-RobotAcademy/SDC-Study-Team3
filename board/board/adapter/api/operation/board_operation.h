@@ -1,5 +1,5 @@
-#ifndef __BOARD_OPERATION_REQUEST_H__
-#define __BOARD_OPERATION_REQUEST_H__
+#ifndef __BOARD_OPERATION_H__
+#define __BOARD_OPERATION_H__
 
 
 #ifdef __cplusplus

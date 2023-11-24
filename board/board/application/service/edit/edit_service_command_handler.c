@@ -6,7 +6,7 @@
 #include "edit_service_command_handler.h"
 
 #include "../../../../utility/keyboard_input/keyboard_input.h"
-#include "../../../adapter/api/request/board_operation_request.h"
+#include "../../../adapter/api/operation/board_operation.h"
 #include "../../../../utility/file/make_file_from_format/make_file_from_format.h"
 
 

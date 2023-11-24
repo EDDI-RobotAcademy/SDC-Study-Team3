@@ -9,7 +9,7 @@ extern "C" {
 
 #include "board_service_command.h"
 
-#include "../../adapter/api/request/board_operation_request.h"
+#include "../../adapter/api/operation/board_operation.h"
 
 #include "../../../utility/file/file_io/read_data.h"
 

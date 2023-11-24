@@ -2,7 +2,7 @@
 
 #include "../../../../utility/keyboard_input/keyboard_input.h"
 #include "../../../../utility/file/make_file_from_format/make_file_from_format.h"
-#include "../../../adapter/api/request/board_operation_request.h"
+#include "../../../adapter/api/operation/board_operation.h"
 
 
 

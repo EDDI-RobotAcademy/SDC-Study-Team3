@@ -9,7 +9,7 @@
 #include "board/adapter/out/board_out_command.h"
 
 
-#include "board/adapter/api/request/board_operation_request.h"
+#include "board/adapter/api/operation/board_operation.h"
 
 
 #include "board/adapter/api/board_api_command.h"
@@ -82,11 +82,11 @@ int main (void)
     
     //board_out_command_table[0]();
 
-    request_board_operation();
+    //request_board_operation();
 
     //board_service_command_table[BOARD_SERVICE_LIST]();
 
-   // board_api_command_table[0]();
+    board_api_command_table[0]();
 
    
     return 0;
