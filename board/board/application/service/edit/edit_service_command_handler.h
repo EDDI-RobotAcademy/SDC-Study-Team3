@@ -9,6 +9,7 @@ extern "C" {
 
 void post_edit();
 void check_password(post_model *model_to_check);
+void confirm_to_save_edited_model(post_model *model_to_save, post_model *tmp_post_model);
 void edit(post_model *model_to_edit);
 
 #ifdef __cplusplus
