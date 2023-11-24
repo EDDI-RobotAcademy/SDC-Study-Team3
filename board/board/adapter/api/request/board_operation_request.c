@@ -6,6 +6,11 @@
 
 #include "../../../../utility/keyboard_input/keyboard_input.h"
 
+#include "../../out/list_out/list_out_command_handler.h"
+
+#include "../../out/board_out_command_table.h"
+#include "../../out/board_out_command.h"
+
 //#include "../board_api_command.h"
 #include "../../../application/service/board_service_command.h"
 

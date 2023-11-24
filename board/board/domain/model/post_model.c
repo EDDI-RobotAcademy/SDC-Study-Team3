@@ -107,6 +107,7 @@ void edit_post_model_with_new_title_and_content( post_model *post_model_to_edit,
 post_model **init_post_model_array_with_count(int count)
 {
     post_model_array = (post_model **)malloc(sizeof(post_model *) * count);
+    printf("post_model_array %d의 사이즈로 생성됨",count);
     return post_model_array;
 }
 
@@ -121,6 +122,7 @@ void add_post_model_to_post_array(post_model *post_model_to_add)
     }
     else
     {
+        
         post_model_array = (post_model **)realloc(post_model_array, sizeof(post_model*) * (post_count+1));
     }
 
@@ -144,6 +146,11 @@ post_model *find_post_model_from_array_with_uid(unsigned int uid)
     return NULL;
 }
 
+void reset_post_count()
+{
+    post_count = 0;
+}
+
 
 /// @brief 게시글 갯수를 리턴하는 함수...인데 쓸일이 있을진 미지수
 unsigned int get_post_count()
@@ -157,7 +164,7 @@ unsigned int get_post_count()
 void set_post_model_title_from_input(post_model *post_from_request, char *title)
 {
     int title_length = strlen(title) - 1;
-    //post_from_request->title = (char *)malloc(sizeof(char) * title_length);
+    post_from_request->title = (char *)malloc(sizeof(char) * title_length);
     strncpy(post_from_request->title, title, title_length);
 }
 
@@ -167,7 +174,7 @@ void set_post_model_title_from_input(post_model *post_from_request, char *title)
 void set_post_model_writer_from_input(post_model *post_from_request, char *writer)
 {
     int writer_length = strlen(writer) - 1;
-    //post_from_request->writer = (char *)malloc(sizeof(char) * writer_length);
+    post_from_request->writer = (char *)malloc(sizeof(char) * writer_length);
     strncpy(post_from_request->writer, writer, writer_length);
 }
 
@@ -177,7 +184,7 @@ void set_post_model_writer_from_input(post_model *post_from_request, char *write
 void set_post_model_password_from_input(post_model *post_from_request, char *password)
 {
     int password_length = strlen(password) - 1;
-    //post_from_request->password = (char *)malloc(sizeof(char) * password_length);
+    post_from_request->password = (char *)malloc(sizeof(char) * password_length);
     strncpy(post_from_request->password, password, password_length);
 }
 
@@ -187,7 +194,7 @@ void set_post_model_password_from_input(post_model *post_from_request, char *pas
 void set_post_model_content_from_input(post_model *post_from_request, char *content)
 {
     int content_length = strlen(content) - 1;
-    //post_from_request->content = (char *)malloc(sizeof(char) * content_length);
+    post_from_request->content = (char *)malloc(sizeof(char) * content_length);
     strncpy(post_from_request->content, content, content_length);
 }
 

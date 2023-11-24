@@ -13,7 +13,7 @@
 
 void list_out(void)
 {
-    printf("mapper 에 의한 list_out 호출 성공\n");
+   // printf("mapper 에 의한 list_out 호출 성공\n");
    
     int unique_id_loop = 0;
     

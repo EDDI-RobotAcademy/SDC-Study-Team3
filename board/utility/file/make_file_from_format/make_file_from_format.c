@@ -24,7 +24,7 @@ void adjust_write_contents_from_format(char *contents, post_model *format)
     // contents에 "id:%d,major:%s,age:%d,introduction:%s,\n" 의 형식으로 문자열을 생성함
     sprintf(contents, "id:%d,title:%s,writer:%s,password:%s,content:%s,\n", 
         format->unique_id, format->title, format->writer, format->password, format->content);
-    printf("contents: %s\n", contents);
+   // printf("contents: %s\n", contents);
 }
 
 /// @brief post_model을 파일의 다음 항목으로써 저장하는 함수
@@ -77,7 +77,7 @@ bool write_file_with_array()
         char write_contents[BUDDY_PAGE_SIZE] = { 0 };
         adjust_write_contents_from_format(write_contents, post_model_array[loop]);
         write_content_in_file(created_file_descriptor, write_contents);
-        printf("냠냠");
+     //   printf("냠냠");
     }
 
     file_close(created_file_descriptor);
