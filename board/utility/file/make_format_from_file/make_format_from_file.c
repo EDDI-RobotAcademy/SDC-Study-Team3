@@ -154,14 +154,14 @@ void **read_file_to_format(void)
 
     //read_content_from_file_and_print(created_file_descriptor, read_contents);
     read_content_from_file(created_file_descriptor, read_contents);
-    printf("read_contents: %s\n\n", read_contents);
+    //printf("read_contents: %s\n\n", read_contents);
 
     total_length = file_total_length(created_file_descriptor);
     file_close(created_file_descriptor);
 
     object_count = find_enter_line_for_format_count(read_contents, total_length);
     tmp_post_model_array = init_post_model_array_with_count(object_count);
-    printf("object_count: %d\n", object_count);
+    //printf("object_count: %d\n", object_count);
 
     set_post_model_with_read_contents(tmp_post_model_array, object_count, read_contents);
     

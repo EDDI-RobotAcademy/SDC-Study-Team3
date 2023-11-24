@@ -1,4 +1,3 @@
 id:0,title:ASdasdasd,writer:조정환,password:123,content:내내내내낸,
-id:1,title:가가가가,writer:이재승,password:123,content:나나나나,
-id:2,title:qsadfsadfwere,writer:aqwe,password:123,content:werrtyrtyrtfgh,
+id:2,title:EditTest,writer:aqwe,password:123,content:수수정되었습니다��,
 id:3,title:gfjyititryu,writer:42536,password:123,content:546tryrty,

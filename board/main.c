@@ -62,21 +62,18 @@ void make_file()
     m4->writer = "42536";
     m4->password = "123";
    
-    for(unsigned int i =0; i<4; i++)
-    {
-        printf("%d\n",i);
-        printf("uid: %d\ntitle: %s\nwriter: %s\ncontents: %s\n", 
-            post_model_array[i]->unique_id,post_model_array[i]->title, 
-            post_model_array[i]->writer, post_model_array[i]->content);
-        printf("\n");
-    }
+    // for(unsigned int i =0; i<4; i++)
+    // {
+    //     printf("%d\n",i);
+    //     printf("uid: %d\ntitle: %s\nwriter: %s\ncontents: %s\n", 
+    //         post_model_array[i]->unique_id,post_model_array[i]->title, 
+    //         post_model_array[i]->writer, post_model_array[i]->content);
+    //     printf("\n");
+    // }
 
-    printf("설정 끝");
-
-    write_format_to_file(m1);
-
+   // printf("설정 끝");
     write_file_with_array();
-    printf("파일 만들기 끗");
+   // printf("파일 만들기 끗");
 }
 
 int main (void)
