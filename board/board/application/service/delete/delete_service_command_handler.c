@@ -5,15 +5,37 @@
 #include "../board_service_command.h"
 #include "../../../domain/model/post_model.h"
 #include "../../../../utility/file/make_file_from_format/make_file_from_format.h"
+#include "../../../../utility/keyboard_input/keyboard_input.h"
+
+
 
 // request를 통해 호출될 함수
 // mapper를 통해 table이랑 연결된다.
 void post_delete()
 {
     unsigned int uid = get_uid_from_input_with_message("삭제 할 게시글의 번호를 입력 해 주세요: ");
-
-    delete_post_model_from_post_array(uid);
+    confirm_to_delete(uid);
+    request_board_operation();
 }
+
+void confirm_to_delete(unsigned int uid)
+{
+   char keyboard_input[MAX_USER_KEYBOARD_INPUT] = { 0 };
+   char *input = get_user_keyboard_input_with_message("정말 삭제 하시겠습니까 ? (Y/N)", keyboard_input);
+   if(!strncmp(input,"Y",1) || !strncmp(input,"y",1) )
+   {
+        delete_post_model_from_post_array(uid);
+   }
+   else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) )
+   {
+        printf("삭제하지 않습니다.");
+   }    
+   else
+   {
+        confirm_to_delete(uid);
+   }
+}
+
 // 실제 구동 될 함수
 void delete_post_model_from_post_array(unsigned int uid)
 {

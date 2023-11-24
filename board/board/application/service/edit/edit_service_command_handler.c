@@ -48,7 +48,7 @@ void check_password(post_model *model_to_check)
 }
 
 
-  void confirm_to_save_edited_model(post_model *model_to_save, post_model *tmp_post_model)
+  void confirm_to_save(post_model *model_to_save, post_model *tmp_post_model)
 {
    char keyboard_input[MAX_USER_KEYBOARD_INPUT] = { 0 };
    char *input = get_user_keyboard_input_with_message("수정 내용을 저장 하시겠습니까 ? (Y/N)", keyboard_input);
@@ -56,12 +56,19 @@ void check_password(post_model *model_to_check)
    {
         model_to_save = tmp_post_model;
         write_file_with_array();
+
    }
+      else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) )
+   {
+        printf("저장하지 않습니다.");
+   }    
    else
    {
-      printf("저장하지 않습니다.");
+        printf("잘못 입력 하셨습니다.");
+        confirm_to_save(model_to_save, tmp_post_model);
    }
 }
+
 
 /// @brief 실제 수정이 이루어질 함수. 제목과 내용만 수정 가능하다
 /// @param model_to_edit 수정 할 post_model
@@ -79,7 +86,7 @@ void edit(post_model *model_to_edit)
     get_user_keyboard_input_with_message("새로운 내용을 입력 해 주세요: ", content_input);
     set_post_model_content_from_input(tmp_post_model_to_edit, content_input);
  
-    confirm_to_save_edited_model(model_to_edit, tmp_post_model_to_edit);
+    confirm_to_save(model_to_edit, tmp_post_model_to_edit);
     
     printf("수정 완료!\n");
     printf("게시판으로 돌아갑니다!\n");
