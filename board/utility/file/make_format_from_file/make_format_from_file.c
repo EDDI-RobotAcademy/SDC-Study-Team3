@@ -30,7 +30,7 @@ int find_enter_line_for_format_count(char *buffer, int total_length)
 
     for (i = 0; i < total_length; i++)
     {
-        if (!strncmp(&buffer[i], "\\n", 1))
+        if (!strncmp(&buffer[i], "\n", 1))
         {
             count++;
         }
@@ -56,6 +56,7 @@ void set_post_model_with_read_contents(
     bool started = false;
     int read_contents_length = strlen(read_contents);
 
+    reset_post_count();
     // 읽은 내용을 1 바이트씩 순회
     for (i = 0; i < read_contents_length; i++)
     {
@@ -72,7 +73,7 @@ void set_post_model_with_read_contents(
         {
             finish = i;
             started = false;
-            printf("start = %d, finish = %d\n", start, finish);
+          //  printf("start = %d, finish = %d\n", start, finish);
 
             // ":" 과 "," 사이의 값이 객체에 배치해야하는 정보임
             if (field_count % 5 == 0)
@@ -80,7 +81,7 @@ void set_post_model_with_read_contents(
                 char tmp_str[MAX_USER_KEYBOARD_INPUT] = { 0 };
                 strncpy(tmp_str, &read_contents[start + 1], finish - start - 1);
                 unique_id = atoi(tmp_str);
-                printf("unique_id = %d\n", unique_id);
+               // printf("unique_id = %d\n", unique_id);
             }
 
             if (field_count % 5 == 1)
@@ -91,7 +92,7 @@ void set_post_model_with_read_contents(
                 // 전체 배열을 0 으로 초기화 시키는 작업임
                 memset(title, 0x00, MAX_USER_KEYBOARD_INPUT);
                 strncpy(title, &read_contents[start + 1], finish - start - 1);
-                printf("title = %s\n", title);
+              //  printf("title = %s\n", title);
             }
 
             if (field_count % 5 == 2)
@@ -99,7 +100,7 @@ void set_post_model_with_read_contents(
                 char tmp_str[MAX_USER_KEYBOARD_INPUT] = { 0 };
                 memset(writer, 0x00, MAX_USER_KEYBOARD_INPUT);
                 strncpy(writer, &read_contents[start + 1], finish - start - 1);
-                printf("writer = %s\n", writer);
+               // printf("writer = %s\n", writer);
             }
 
             if (field_count % 5 == 3)
@@ -107,7 +108,7 @@ void set_post_model_with_read_contents(
                 char tmp_str[MAX_USER_KEYBOARD_INPUT] = { 0 };
                 memset(password, 0x00, MAX_USER_KEYBOARD_INPUT);
                 strncpy(password, &read_contents[start + 1], finish - start - 1);
-                printf("password: %s\n", password);
+             //   printf("password: %s\n", password);
 
             }
 
@@ -116,17 +117,17 @@ void set_post_model_with_read_contents(
                 char tmp_str[MAX_USER_KEYBOARD_INPUT] = { 0 };
                 memset(content, 0x00, MAX_USER_KEYBOARD_INPUT);
                 strncpy(content, &read_contents[start + 1], finish - start - 1);
-                printf("content: %s\n", content);
+               // printf("content: %s\n", content);
 
                 param_post_model_array[field_count / 5] = 
                 init_post_model_object_with_data(unique_id, title, writer, password, content);
             
-                // 파일 자료가 저장이름 확인용 출력 (삭제하여도 구동에 문제 없음)
-                printf("\npost_model_arrary[%d]->unique_id  : %d\n", unique_id, param_post_model_array[unique_id]->unique_id);
-                printf("post_model_arrary[%d]->title      : %s\n", unique_id, param_post_model_array[unique_id]->title);
-                printf("post_model_arrary[%d]->writer     : %s\n", unique_id, param_post_model_array[unique_id]->writer);
-                printf("post_model_arrary[%d]->password   : %s\n", unique_id, param_post_model_array[unique_id]->password);
-                printf("post_model_arrary[%d]->content    : %s\n\n", unique_id, param_post_model_array[unique_id]->content);
+                // // 파일 자료가 저장이름 확인용 출력 (삭제하여도 구동에 문제 없음)
+                // printf("\npost_model_arrary[%d]->unique_id  : %d\n", unique_id, param_post_model_array[unique_id]->unique_id);
+                // printf("post_model_arrary[%d]->title      : %s\n", unique_id, param_post_model_array[unique_id]->title);
+                // printf("post_model_arrary[%d]->writer     : %s\n", unique_id, param_post_model_array[unique_id]->writer);
+                // printf("post_model_arrary[%d]->password   : %s\n", unique_id, param_post_model_array[unique_id]->password);
+                // printf("post_model_arrary[%d]->content    : %s\n\n", unique_id, param_post_model_array[unique_id]->content);
 
                 set_post_model_unique_id(unique_id);
             }

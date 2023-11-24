@@ -25,7 +25,7 @@ extern post_model **post_model_array;
 
 void set_post_model_unique_id(int uid);
 void decrement_post_count();
-
+void reset_post_count();
 post_model *init_post_model_object(const int max_text_length);
 post_model *init_post_model_object_with_data(const unsigned int uid, char *title, char* writer, char* password, char* content);
 void edit_post_model_with_new_title_and_content( post_model *post_model_to_set, char *title, char* content);

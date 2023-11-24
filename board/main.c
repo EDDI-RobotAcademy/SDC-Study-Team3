@@ -36,50 +36,56 @@
 
 #include "board/domain/model/post_model.h"
 
+void make_file()
+{
+      post_model *m1 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
+    post_model *m2 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
+    post_model *m3 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
+    post_model *m4 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
+    m1->title = "ASdasdasd";
+    m1->content = "내내내내낸";
+    m1->writer = "조정환";
+    m1->password = "123";
+
+    m2->title = "qweqweqwe";
+    m2->content = "sjsjsjsjjs";
+    m2->writer = "이재승";
+    m2->password = "123";
+
+     m3->title = "qsadfsadfwere";
+    m3->content = "werrtyrtyrtfgh";
+    m3->writer = "aqwe";
+    m3->password = "123";
+
+     m4->title = "gfjyititryu";
+    m4->content = "546tryrty";
+    m4->writer = "42536";
+    m4->password = "123";
+   
+    for(unsigned int i =0; i<4; i++)
+    {
+        printf("%d\n",i);
+        printf("uid: %d\ntitle: %s\nwriter: %s\ncontents: %s\n", 
+            post_model_array[i]->unique_id,post_model_array[i]->title, 
+            post_model_array[i]->writer, post_model_array[i]->content);
+        printf("\n");
+    }
+
+    printf("설정 끝");
+
+    write_format_to_file(m1);
+
+    write_file_with_array();
+    printf("파일 만들기 끗");
+}
+
 int main (void)
 {
-    #pragma region DELETE_TEST
-    // post_model *m1 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
-    // post_model *m2 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
-    // post_model *m3 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
-    // post_model *m4 = init_post_model_object(MAX_USER_KEYBOARD_INPUT);
-    // m1->title = "ASdasdasd";
-    // m1->content = "내내내내낸";
-    // m1->writer = "조정환";
-
-    // m2->title = "qweqweqwe";
-    // m2->content = "sjsjsjsjjs";
-    // m2->writer = "이재승";
-
-    //  m3->title = "qsadfsadfwere";
-    // m3->content = "werrtyrtyrtfgh";
-    // m3->writer = "aqwe";
-
-    //  m4->title = "gfjyititryu";
-    // m4->content = "546tryrty";
-    // m4->writer = "42536";
-   
-    // for(unsigned int i =0; i<4; i++)
-    // {
-    //     printf("%d\n",i);
-    //     printf("uid: %d\ntitle: %s\nwriter: %s\ncontents: %s\n", 
-    //         post_model_array[i]->unique_id,post_model_array[i]->title, 
-    //         post_model_array[i]->writer, post_model_array[i]->content);
-    //     printf("\n");
-    // }
-
-    // printf("설정 끝");
-
-    // //write_format_to_file(m1);
-
-    // write_file_with_array();
-    // printf("파일 만들기 끗");
-  
-    #pragma endregion
+    make_file();
     
-    board_out_command_table[0]();
+    //board_out_command_table[0]();
 
-    //request_board_operation();
+    request_board_operation();
 
     //board_service_command_table[BOARD_SERVICE_LIST]();
 

@@ -16,9 +16,10 @@ void confirm_to_delete(unsigned int uid)
 {
    char keyboard_input[MAX_USER_KEYBOARD_INPUT] = { 0 };
    char *input = get_user_keyboard_input_with_message("정말 삭제 하시겠습니까 ? (Y/N)", keyboard_input);
+   post_model *model_to_delete = find_post_model_from_array_with_uid(uid);
    if(!strncmp(input,"Y",1) || !strncmp(input,"y",1) )
    {
-        delete_post_model_from_post_array(uid);
+        check_password_delete(model_to_delete);
    }
    else if(!strncmp(input,"N",1) || !strncmp(input,"n",1) )
    {
@@ -30,8 +31,10 @@ void confirm_to_delete(unsigned int uid)
    }
 }
 
+
+
 // 실제 구동 될 함수
-void delete_post_model_from_post_array(unsigned int uid)
+void delete_post_model_from_post_array(post_model *model_to_delete)
 {
     unsigned int loop;
     unsigned int current_post_count = get_post_count();
@@ -42,11 +45,11 @@ void delete_post_model_from_post_array(unsigned int uid)
     
     for(loop = 0; loop < current_post_count; loop ++)
     {
-        if( post_model_array[loop]->unique_id == uid)
+        if( post_model_array[loop] == model_to_delete)
         {
          // 삭제된 post_model은 free와 ptr*=NULL을 통해서 완전 초기화시킨다.
-         free(post_model_array[loop]);
-         post_model_array[loop] = NULL;
+        // free(post_model_array[loop]);
+        // post_model_array[loop] = NULL;
          continue;
         }
       
@@ -55,14 +58,14 @@ void delete_post_model_from_post_array(unsigned int uid)
        
         tmp_post_count++;
     }
-
-    post_model_array = (post_model **)realloc(post_model_array, sizeof(post_model*) * (current_post_count-1));
+    decrement_post_count();
+    post_model_array = (post_model **)realloc(post_model_array, sizeof(post_model*) * (current_post_count));
     
     post_model_array = tmp_array;
-
-    decrement_post_count();
+    
+   
     write_file_with_array();
-
+  
 
     request_board_operation();
 
@@ -74,8 +77,40 @@ void post_delete()
 {
     unsigned int uid = get_uid_from_input_with_message("삭제 할 게시글의 번호를 입력 해 주세요: ");
     confirm_to_delete(uid);
-    request_board_operation();
+    
 }
 
 
+
+void check_password_delete(post_model *model_to_check)
+{
+
+   
+
+
+    char password_input_from_user[MAX_USER_KEYBOARD_INPUT] = { 0 };
+    // // 기존 모델의 비밀번호를 가져오려했는데 생각해보니 그냥 넣으면되네
+    // char password[MAX_USER_KEYBOARD_INPUT] = { 0 };
+     int password_length = strlen(model_to_check->password);
+     
+    // strncpy(password, model_to_check->password, password_length+1);
+
+    get_user_keyboard_input_with_message("비밀번호를 입력 해 주세요: ", password_input_from_user);
+
+    // 비밀번호 전체와 입력값 전체를 비교해야하기에 strcmp를 사용
+    // strcmp는 두 값이 같을 경우 0을 반환함
+  
+    int input_length = strlen(password_input_from_user)-1;
+    if(strncmp(model_to_check->password, password_input_from_user,input_length) == 0)
+    {
+        delete_post_model_from_post_array(model_to_check);
+    }
+    else
+    {
+        printf("비밀번호가 일치하지 않습니다.\n");
+        request_board_operation();
+    }
+
+
+}
 

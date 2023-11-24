@@ -12,9 +12,10 @@ extern "C" {
 void post_delete();
 
 
+void confirm_to_delete(unsigned int uid);
+void check_password_delete(post_model *model_to_check);
 
-
-void delete_post_model_from_post_array(unsigned int);
+void delete_post_model_from_post_array(post_model *model_to_delete);
 
 #ifdef __cplusplus
 }
