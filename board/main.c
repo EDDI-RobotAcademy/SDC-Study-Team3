@@ -3,6 +3,10 @@
 #include <string.h>
 #include <stdbool.h>
 
+
+#include "board/adapter/api/board_api_command_table.h"
+#include "board/adapter/api/board_api_command.h"
+
 #include "board/adapter/out/list_out/list_out_command_handler.h"
 
 #include "board/adapter/out/board_out_command_table.h"
@@ -12,7 +16,7 @@
 #include "board/adapter/api/operation/board_operation.h"
 
 
-#include "board/adapter/api/board_api_command.h"
+
 #include "utility/keyboard_input/keyboard_input.h"
 
 #include "utility/file/file_io/make_file.h"
@@ -30,8 +34,7 @@
 #include "board/application/service/board_service_command_table.h"
 #include "board/application/service/board_service_command.h"
 
-#include "board/adapter/api/board_api_command_table_mapper.h"
-#include "board/adapter/api/board_api_command_table.h"
+
 
 
 #include "board/domain/model/post_model.h"
@@ -78,15 +81,15 @@ void make_file()
 
 int main (void)
 {
-    make_file();
+    //make_file();
     
     //board_out_command_table[0]();
 
-    //request_board_operation();
+    //board_operation();
 
     //board_service_command_table[BOARD_SERVICE_LIST]();
 
-    board_api_command_table[0]();
+    board_api_command_table[BOARD_API_REQUEST]();
 
    
     return 0;

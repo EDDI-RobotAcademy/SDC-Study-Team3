@@ -6,12 +6,12 @@
 #include "../../../../utility/keyboard_input/keyboard_input.h"
 
 
-#include "../../../application/service/board_service_command.h"
+
 
 #include "board_operation.h"
 
 #include "../../../application/service/board_service_command_table.h"
-
+#include "../../../application/service/board_service_command.h"
 
 
 
@@ -47,7 +47,7 @@ void board_operation()
     if(index<1 || index > 4)
     {
         printf("잘못 된 번호입니다.\n");
-        request_board_operation();
+        board_operation();
     }
     else
     {

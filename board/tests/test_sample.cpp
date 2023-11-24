@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 #include "../board/domain/model/post_model.h"
-#include "../board/adapter/api/request/board_operation_request.h"
+#include "../board/adapter/api/operation/board_operation.h"
 #include "../utility/keyboard_input/keyboard_input.h"
 
 #include "../board/application/service/list/list_service_command_handler.h"
